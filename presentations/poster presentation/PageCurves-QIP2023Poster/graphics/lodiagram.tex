@@ -1,0 +1,27 @@
+\begin{figure}%[h]
+    \centering
+
+    \begin{quantikz}[row sep={1.5cm,between origins}]
+        % %
+        % \lstick{$L^2(\bbR)^{\otimes k}\ni \ket{s}^{\otimes n}$} & \gate[wires=2]{U \in \Sp(2n) \cap \O(2n)} \qwbundle[alternate]{} & \qwbundle[alternate]{} & \rstick{$S_2(U)$} \\[2em]
+        % %
+        % \lstick{$L^2(\bbR)^{\otimes (n-k)}\ni \ket{s}^{\otimes (n-k)}$} & \qwbundle[alternate]{} & \qwbundle[alternate]{} & %\rstick{$S_2(U)$}
+        % %
+        %
+        \lstick[wires=4]{$L^2(\bbR)^{\otimes k}\ni \ket{s}^{\otimes k}$} && \qw & \gate[wires=9]{U \in_{{}_{\rm Haar}} \!\U(n)} \qw & \qw & \qw & \rstick[wires=4]{$\rho(U)$} \\
+        && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & \\[1em]
+        %
+        \lstick[wires=5]{$L^2(\bbR)^{\otimes (n-k)}\ni \ket{s}^{\otimes (n-k)}$} && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & \\
+        && \qw & \qw & \qw & \qw & 
+        %
+    \end{quantikz}
+
+    \caption{Pictorial representation of the setup we consider.}
+    \label{fig:lodiagram}
+
+\end{figure}

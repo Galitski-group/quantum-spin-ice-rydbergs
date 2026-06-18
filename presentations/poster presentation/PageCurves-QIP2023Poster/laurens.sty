@@ -1,0 +1,239 @@
+% % \newcommand{\id}{\mathbb{1}}
+% \newcommand{\myinv}[1]{#1^{\scalebox{0.9}[1.0]{-}1}}
+% \newcommand{\F}[1]{{}^#1\!F}
+% % \newcommand{\tr}{{\rm Tr}}
+% \newcommand{\com}[1]{{\color{red} {\it  #1}}}
+% \newtheorem{definition}{Definition}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,decorations.markings,calc,3d,positioning,quotes,patterns}
+
+\tikzset{
+  tensor/.style={
+    inner sep = 0.055cm,
+    shape = circle,
+    draw,
+    fill
+  },
+  edge/.style={
+    inner sep = 0.15cm,
+    shape = rectangle,
+    draw,
+    fill
+  },
+  odd/.style={
+    inner sep = 0.2cm,
+    shape = circle,
+    draw,
+    fill=white
+  },
+  even/.style={
+    inner sep = 0.2cm,
+    shape = circle,
+    draw,
+    fill
+  },
+  oddn/.style={
+    inner sep = 0.2cm,
+    shape = circle,
+    draw,
+    fill=white,
+    % pattern = north west lines,
+    label={[label distance=-.97cm]270:$n$}
+  },
+  mpo/.style={
+    draw,shape=rectangle,fill=white,inner sep = 0.5 mm,
+    minimum width=1.25cm,
+    minimum height=1.25cm,
+  },
+  sigma/.style={
+    draw,shape=rectangle,fill=white,inner sep = 0.5 mm,
+    minimum width=.75cm,
+    minimum height=.5cm,
+  },
+  t/.style={
+    inner sep = 0.03cm,
+    shape = circle,
+    draw,
+    fill
+  },
+}
+
+
+\tikzset{
+  hopf2/.style={
+    line cap=round,
+    line width=1.5mm,
+  },
+  epsilon2/.style={
+   draw = red,
+   thin,
+   densely dotted,
+   rounded corners,
+   fill opacity=0.2,
+   fill=red,
+  },
+  every picture/.style = {
+    baseline={([yshift=-.5ex]current bounding box.center)},
+    font=\scriptsize
+  },
+  irrep/.style={
+    anchor=south,
+    font = \tiny,
+    inner sep=2pt
+  }
+}
+
+
+\tikzset{
+  every label/.style = {
+    text depth=0pt,
+    text height=1ex,
+  },
+}
+
+\tikzset{
+  pics/V/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (-0.5,0);
+	    \coordinate (-up) at (0.5,0.3);
+	    \coordinate (-down) at (0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	    \draw[hopf2] (0,-0.35)--(0,0.35);
+	    \draw (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    \node[irrep] at (-0.25,0) {$#1$};
+	    \node[irrep] at (0.25,0.3) {$#2$};
+	    \node[irrep] at (0.25,-0.3) {$#3$};
+    }
+  },
+  pics/W/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (0.5,0);
+	    \coordinate (-up) at (-0.5,0.3);
+	    \coordinate (-down) at (-0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	    \draw[hopf2] (0,-0.35)--(0,0.35);
+	    \draw (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    \node[irrep] at (0.25,0) {$#1$};
+	    \node[irrep] at (-0.25,0.3) {$#2$};
+	    \node[irrep] at (-0.25,-0.3) {$#3$};
+    }
+  },
+      pics/V1/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (-0.4,0);
+	    \coordinate (-up) at (0.5,0.3);
+	    \coordinate (-down) at (0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	  	    \draw[red] (0,0.3)--(-up);
+	    \draw[red] (0,-0.3)--(-down);
+	    \draw[red] (0,0)--(-mid);
+	      \draw[hopf2] (0,-0.35)--(0,0.35);
+	    \node[irrep] at (-0.25,0) {$#1$};
+	    \node[irrep] at (0.25,0.3) {$#2$};
+	    \node[irrep] at (0.25,-0.3) {$#3$};
+    }
+  },
+  pics/W1/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (0.4,0);
+	    \coordinate (-up) at (-0.5,0.3);
+	    \coordinate (-down) at (-0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	   \draw[red] (0,0.3)--(-up);
+	    \draw[red] (0,-0.3)--(-down);
+	    \draw[red] (0,0)--(-mid);
+	    	    \draw[hopf2] (0,-0.35)--(0,0.35);
+	    \node[irrep] at (0.25,0) {$#1$};
+	    \node[irrep] at (-0.25,0.3) {$#2$};
+	    \node[irrep] at (-0.25,-0.3) {$#3$};
+    }
+  },
+    pics/V2/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (-0.4,0);
+	    \coordinate (-up) at (0.5,0.3);
+	    \coordinate (-down) at (0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	    \draw[red] (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    \draw[hopf2,gray] (0,-0.35)--(0,0.35);
+	    \node[irrep] at (-0.25,0) {$#1$};
+	    \node[irrep] at (0.25,0.3) {$#2$};
+	    \node[irrep] at (0.25,-0.3) {$#3$};
+    }
+  },
+  pics/W2/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (0.4,0);
+	    \coordinate (-up) at (-0.5,0.3);
+	    \coordinate (-down) at (-0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	   \draw[red] (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    \draw[hopf2,gray] (0,-0.35)--(0,0.35);
+	    \node[irrep] at (0.25,0) {$#1$};
+	    \node[irrep] at (-0.25,0.3) {$#2$};
+	    \node[irrep] at (-0.25,-0.3) {$#3$};
+    }
+  },
+     pics/V3/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (-0.4,0);
+	    \coordinate (-up) at (0.5,0.3);
+	    \coordinate (-down) at (0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	    \draw[red] (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    \filldraw[fill=gray!30, draw=black] (-0.07,-0.4) rectangle (0.07,0.4);
+	    \node[irrep] at (-0.25,0) {$#1$};
+	    \node[irrep] at (0.25,0.3) {$#2$};
+	    \node[irrep] at (0.25,-0.3) {$#3$};
+    }
+  },
+  pics/W3/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (0.4,0);
+	    \coordinate (-up) at (-0.5,0.3);
+	    \coordinate (-down) at (-0.5,-0.3);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	   \draw[red] (0,0.3)--(-up);
+	    \draw (0,-0.3)--(-down);
+	    \draw (0,0)--(-mid);
+	    	    \filldraw[fill=gray!30, draw=black] (-0.07,-0.4) rectangle (0.07,0.4);
+	    \node[irrep] at (0.25,0) {$#1$};
+	    \node[irrep] at (-0.25,0.3) {$#2$};
+	    \node[irrep] at (-0.25,-0.3) {$#3$};
+    }
+  },
+    pics/W2big/.style args={#1/#2/#3}{
+    code = {
+	    \coordinate (-mid) at (0.4,0);
+	    \coordinate (-up) at (-0.5,0.45);
+	    \coordinate (-down) at (-0.5,-0.45);
+	    \coordinate (-top) at (0,0.45);
+	    \coordinate (-bottom) at (0,-0.45);
+	   \draw[red] (0,0.45)--(-up);
+	    \draw (0,-0.45)--(-down);
+	    \draw (0,0)--(-mid);
+	    \draw[hopf2,gray] (0,-0.5)--(0,0.5);
+	    \node[irrep] at (0.25,0) {$#1$};
+	    \node[irrep] at (-0.25,0.45) {$#2$};
+	    \node[irrep] at (-0.25,-0.45) {$#3$};
+    }
+  }
+ }

@@ -1,0 +1,532 @@
+\documentclass[
+onecolumn,
+superscriptaddress,
+longbibliography,
+nofootinbib,
+ amsmath,amssymb,
+ aps,
+prb
+]{revtex4-2}
+
+
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage[normalem]{ulem}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{comment}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{appendix}
+\usepackage{caption}
+\usepackage{enumerate}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{subcaption}
+\usepackage{graphicx}% Include figure files
+\graphicspath{ {./images_response/} }
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage[mathscr]{euscript}
+\usepackage[scr=boondox]{mathalpha}
+\usepackage{bm}% bold math
+\usepackage[linktocpage]{hyperref}% add hypertext capabilities
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue, urlcolor=blue, breaklinks=true}
+
+
+\renewcommand{\bibnumfmt}[1]{[R#1]}
+\renewcommand{\citenumfont}[1]{R#1}
+
+
+
+
+
+\newcommand{\commentGN}[1]{{\color{purple}\footnotesize{GN: #1}}}
+\newcommand{\commentJS}[1]{\textcolor{blue}{\footnotesize{JS: #1}}}
+\newcommand{\response}[1]{\textcolor{Mulberry}{#1}}
+
+\newcommand{\vS}{\vec{S}}
+\newcommand{\utop}{\ensuremath{U(1)_{\text{top}}}}
+\newcommand{\chiof}[3]{\ensuremath{(\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2})\vdot \hat{\va{S}}_{#3}}}
+\newcommand{\Sof}[1]{\ensuremath{\hat{\va{S}}_{#1}}}
+\newcommand{\crossof}[2]{\ensuremath{\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2}}}
+\newcommand{\dotof}[2]{\ensuremath{\hat{\va{S}}_{#1}\vdot \hat{\va{S}}_{#2}}}
+\newcommand{\parchi}[4]{\ensuremath{\hat{\vb{S}}_{#1}^{#4}(\crossof{#2}{#3})^{#4}}}
+\newcommand{\upnchi}{\ensuremath{\hat{\chi}_{\triangle,\vec{n}}}}
+\newcommand{\downnchi}{\ensuremath{\hat{\chi}_{\triangledown,\vec{n}}}}
+\newcommand{\Upchi}[2]{\ensuremath{\chi_{\triangle,\vb{n}+(#1,#2)}}}
+\newcommand{\Downchi}[2]{\ensuremath{\chi_{\triangledown,\vb{n}+(#1 , #2)}}}
+\newcommand\bdot[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+\newcommand{\mysymb}[2]{\mathord{\vcenter{\hbox{\includegraphics[height=#2 ex]{#1}}}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Tm}{\hat{\mathcal{T}}_R}
+\newcommand{\tnew}{\mathrm{t}}
+\newcommand{\tot}[1]{#1_{\mathrm{tot}}}
+\newcommand{\dual}[1]{\boldsymbol{\mathsf{#1}}}
+
+\renewcommand\thefigure{R\arabic{figure}}   
+
+\makeatletter
+\newcommand\xlabel[2][]{\phantomsection\def\@currentlabelname{#1}\label{#2}}
+\makeatother
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+%%% Custom %%%
+\usepackage{mdframed}
+\newmdenv[topline=false,rightline=false,bottomline=false,linewidth=2pt]{leftborder}
+\newcommand{\wesay}[1]{
+	\begin{leftborder}
+		\color{orange}{#1}
+	\end{leftborder}
+}
+\newcommand{\wesaid}[1]{
+	\begin{leftborder}
+		\color{Mulberry}{#1}
+	\end{leftborder}
+}
+
+\begin{document}
+\title{Responses to Referees - 2\\Manuscript XD10747 (Quantum spin ice in three-dimensional Rydberg atom arrays)}
+\maketitle
+
+% \commentJS{The gray text will be removed before submitting the report.}
+
+% {\color{gray}From the Editor:
+
+% Dear Jeet Shah,
+
+% First of all, the editors of Physical Review X (PRX) would like to
+% thank you and your co-authors again for your interest in our journal.
+% The manuscript has now been reviewed again by three of our referees.
+% Please note that the Second Referee who had seen the paper previously
+% was not available, we therefore introduced a new referee – the Fourth
+% Referee. All of the pertinent comments on the manuscript from the
+% referees are appended below.
+
+% As you will see, the recommendations from the referees remain to be
+% mixed, but our editorial decision should be based on the referees’
+% specific comments on what they feel to be the paper's contribution,
+% and what its significance might be. In this regard, although the First
+% Referee feels that all of the raised questions have been properly
+% addressed, the Fourth Referee still has some minor comments, e.g.
+% regarding the explanation of the uncertainty in Eq. (41) and the
+% comparison with the literature, such as [57], for experimental
+% signatures to detect QSL, etc. On the other hand, the Third Referee
+% thinks that only part of the comments raised before have been
+% addressed, and 3 specific points remain unsolved.
+
+% Given the mixed feedback, we decided to go back to the First and the
+% Fourth Referees, asking for their comments on the Third Referee’s
+% criticisms. Their feedback is also attached below for your
+% information. Briefly speaking, both referees think that the points
+% made by the Third Referee are scientifically correct. Nevertheless,
+% both of them still feel the manuscript is an important contribution to
+% the field and recommend its publication in PRX (after some minor
+% revision, see below).
+
+% We therefore invite you to consider the remaining comments from the
+% referees, revise the manuscript as appropriate, and resubmit it at
+% your earliest convenience. More specifically, please provide a
+% point-by-point response to all of the recommendations and criticisms
+% from the Fourth Referee – we will run the revised version by the
+% referee again – and please also consider the comments from the First
+% and the Fourth Referees related to the Third Referee’s report
+% (especially related to the References [24, 26]). Please also include a
+% summary of significant changes made to the manuscript. Please also
+% provide a version of the manuscript wherein changes made to the text
+% are marked out.
+
+% We hope that you find our referees' comments helpful when preparing a
+% revised manuscript. And thanks again for your support of our journal.
+
+% Best regards,
+
+% Yun}\\
+
+% \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+
+Dear Dr. Li,
+
+We thank you very much for sending our manuscript out for review and sending us the Referee reports again. We thank all the three Referees for taking the time to review our paper and for their helpful comments. We are pleased to note that the First Referee is satisfied with our responses to the previous report, and the Fourth Referee thinks the contribution of our work is sufficient for publication in PRX.
+
+
+The Third Referee believes that the stability of the quantum spin liquid (QSL) against van der Waals interactions is expected from previous work by S.~V.~Isakov~et ~al.~\cite{isakov2005why}. We have explained in our responses and in the revised manuscript why this is not true and why studying the effects of van der Waals interactions is important. We have also addressed the Third Referee's minor comment on the real-space version of the Fredenhagen-Marcu (FM) order parameters by adding more explanation to the manuscript. 
+The Third Referee is concerned about the novelty and impact of our work since there are older atomic, molecular, and optical (AMO) proposals of a $U(1)$ QSL in optical lattices. 
+With regard to this, we point out that Rydberg atom arrays have an energy scale that is several orders of magnitude larger than optical lattices, which makes the former a far more suitable platform than the latter.
+This makes our proposal crucial for a realization of a QSL in atomic physics experiments.
+We have addressed all the points raised by the Third Referee. Thus, we disagree with the Third Referee's conclusion that our manuscript does not meet the novelty and impact criteria for publication in PRX.
+% The rest of the Third Referee's comments are highly subjective in nature and we leave it to You to judge the potential impact of our work. 
+
+Regarding the Fourth Referee's comments, we have addressed the comment on the uncertainty in Eq.~(41), explained how the correlators we propose go beyond Hermele et al.~\cite{hermele2004}, and made minor tweaks based on the rest of their comments.
+
+We provide a version of the manuscript where additions are marked in orange. We hereby resubmit our revised manuscript with a summary of significant changes (see the end of our response) and a point-by-point response to the comments of all  Referees on our manuscript and to the comments by the First and the Fourth Referee on the Third Referee's report. 
+
+We hope that the revised manuscript is suitable for publication in PRX.
+
+Thank you very much.
+
+Sincerely,
+
+Jeet Shah, Gautam Nambiar, Alexey Gorshkov, and Victor Galitski\\
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+We use black italic font for the text written by Referees and \response{purple} color for our response. We use the following format to display text that we have added to the manuscript.
+\wesay{\textcolor{black}{Text which was already there in the manuscript is in black like this sentence.} Text newly added to the manuscript is in orange color like this sentence.}
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\section{Response to the second report of the First Referee}
+\textit{I am satisfied with the comprehensive and thoughtful responses to the
+reports of the other referees.}
+
+\response{Our response: We thank the Referee for going through the reports of the other Referees  and our responses to those reports. 
+% We also thank the Referee for their reply and note that they are satisfied with our responses.
+}
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\section{Response to the Second Report of the Third Referee}
+\begin{enumerate}
+
+% -----------------------------------------------------
+\item \textit{In their reply, Shah et al. considered all of my previous comments. I
+thank them for taking all of them seriously, and I believe addressing
+some of them has lead to considerable improvements in the draft
+(clarification on order parameter and referencing in particular).}
+
+\response{Our response: We thank the Referee for taking the time to go through our revised manuscript in detail and for submitting their second report.}
+
+\textit{Still, I feel that, in terms of novelty of the results, and of the
+impact of their phase diagram, the paper does not meet PRX criteria.
+In particular, the reasons are as follows:}
+% -----------------------------------------------------
+
+\item \textit{Point 2 / Novelty:}
+    
+\textit{(a) This statement is factually incorrect. There have been atomic
+physics proposals since (at least) 2006 - see Ref. [68]. This
+testifies that searching for U(1) liquids in atomic physics
+experiments is definitely not a novel direction.
+}
+
+\response{Our response: We  acknowledge that in our previous response, we overlooked Ref.~[68] (S. Tewari et  al.~\cite{tewari2006emergence}) of our manuscript, which proposes to realize a $U(1)$ quantum spin liquid (QSL) in an optical lattice. 
+% Despite there being this proposal, all the experimental search for a $U(1)$ QSL has been restricted to traditional condensed matter systems. 
+Note that we did point out in our \textit{manuscript} that this reference proposes to realize a $U(1)$ QSL in an optical lattice.
+Our work goes significantly beyond Ref.~[68] by paying special attention to measurable correlators that can distinguish the QSL from an ordered state.}
+%These correlators require single-site control of atoms, which for near term technology is  easier in tweezer arrays as opposed to optical lattices because of the much larger spacing in the former.
+
+\response{There is a critical advantage that tweezer arrays have over optical lattices: the energy scales in optical lattices are several orders of magnitude smaller than those in tweezer arrays.
+Specifically, the van der Waals interaction strength between Rydberg atoms can be on the order of $V/2\pi \sim   10^9$ Hz~\cite{semeghini2021} while the on-site interaction strength in optical lattices is on the order of $U/2\pi \sim  10^3$ Hz~\cite{adler2024observation,wienand2024emergence,thomas2017meanfield}.
+The spinon gap is proportional to $V$ in our model and to the on-site interaction strength $U$ in the proposal of Ref.~[68]. 
+For a QSL to be realized and its properties to be observed, the system’s temperature must be much lower than the spinon energy gap to minimize spinon excitations.
+The limitations of optical lattices become even more pronounced when considering the monopole gap, which is significantly smaller than the spinon gap. 
+The monopole gap in our proposal is on the order of $(\Omega/V)^6 V$ and that in the proposal of Ref.~[68] is $(t/U)^3 U$ (where $t$ is the hopping amplitude).
+ For our model, $\Omega/V \sim 0.45$, whereas for Ref.~[68], $t/U \ll 1$ to maintain the system in the QSL phase.
+This disparity makes it evident that the monopole gap in our proposal is many orders of magnitude larger than that in Ref.~[68].
+Consequently, achieving sufficiently low temperatures for QSL realization is far more challenging in optical lattices than in tweezer arrays.
+Hence, using Rydberg atom arrays is a far more practical approach, and our work is a significant advancement despite there being older proposals on optical lattices.
+We have modified the ending of the second-to-last paragraph of the Introduction to emphasize this critical advantage.}
+
+
+\wesay{\textcolor{black}{It was observed in Ref.~\cite{tewari2006emergence} that the Hamiltonian in Ref.~\cite{hermele2004} can be viewed as that of hard-core bosons hopping on an optical lattice with nearest-neighbor repulsion, thus extending its relevance to the cold atom setting $\ldots$}  While Ref.~\cite{tewari2006emergence} proposes to realize a $U(1)$ quantum spin liquid in a 3D optical lattice, our proposal focuses on Rydberg atom arrays where the energy scales involved are several orders of magnitude larger than those in optical lattices. 
+Typical van der Waals interaction strengths in Rydberg atom arrays are on the order of GHz~\cite{semeghini2021}, while the on-site interaction strengths in optical lattices are on the order of kHz~\cite{adler2024observation,wienand2024emergence,thomas2017meanfield}.
+For an observation of the $U(1)$ quantum spin liquid, the temperature of the system must be much smaller than the spinon and the monopole gaps. 
+The large energy scales of Rydberg atom arrays make them  more favorable than optical lattices to realize a quantum spin liquid.
+%where---because of large spacing---single-site control is easier to achieve compared to optical lattices, control that is required for measuring nonlocal correlators that detect a $U(1)$ spin liquid.
+Furthermore, our focus on experimentally measurable correlators goes beyond previous proposals to realize a $U(1)$ quantum spin liquid in atomic, molecular, and optical systems.}
+
+
+\textit{(b) This is a true novelty of the work, which I have shown
+appreciation in my earlier report. However, it is of a highly
+technical nature.}
+
+\response{Our response: We again thank the Referee for acknowledging the novelty of our work. We would like to highlight that the decay of the \textit{nonlocal} monopole correlator is qualitatively different from the typically used pinch-point singularities in \textit{local} correlators to detect $U(1)$ quantum spin liquids. This qualitative difference is crucial to diagnose QSLs. To emphasize this point, we have added the following sentence at the end of the Introduction.}
+
+\wesay{Some of these correlators are nonlocal in nature and are qualitatively different from the typically considered pinch-point singularities in local correlators.}
+
+\textit{(c) In fact, much stronger effects were already discussed, see the
+works by Moessner mentioned in my earlier report. So, analyzing
+long-range forces on U(1) liquids is definitely not novel, nor are the
+authors' results on this point unexpected or surprising.}
+
+
+\response{Our response: As shown in the work by Moessner and others~\cite{isakov2005why}, the dipolar-like interactions considered by them are special because they  do not break the degeneracy of the ice manifold. As shown by our calculations of Sec.~III~A~2, the van der Waals interaction causes a splitting of the degeneracy of the ice manifold and the ice ferromagnet is chosen to be the ground state for $\Omega = 0$. Thus the dipolar-like interactions and the van der Waals interactions present qualitatively different situations.  Stability of the ice manifold against dipolar-like interactions clearly does not imply the stability against van der Waals interactions despite the fact that van der Waals interactions fall off much faster than dipolar-like interactions. Hence determining the effects of van der Waals interactions is indeed novel and important.}
+\response{ We have added the following sentence right before the start of Sec.~III:}
+\wesay{We note that, despite the faster decay of van der Waals interactions compared to dipolar-like interactions of Ref.~\cite{isakov2005why}, the former splits the degeneracy of the ice manifold (see Sec.~III~A~2). \textcolor{black}{Thus, in our work, it is important to study the effects of the van der Waals interaction more closely.}}
+% \response{Additionally, the Rydberg atom arrays have van der Waals interactions so for an experimental realization of our proposal, analyzing the effects of long range interactions is crucial.}
+
+\textit{(d) This is an overstatement. There are older proposals (not on
+Rydbergs, but this matters little to me) in AMO regarding U(1) spin
+liquids. At the conceptual level, it has been very well known in the
+condensed matter community that an Ising model on pyrochlore or
+diamond-like lattices naturally gives rise to a U(1) gauge theory. In
+the absence of a quantitative study, the present investigation is an
+application of this very established idea. [This is also why the
+present works differs a lot from all 2D Rydberg works, that typically
+features non-trivial non perturbative arguments and/or were pioneering
+in terms of modeling.]}
+
+\response{Our response: Our previous statement was specifically in relation to Rydberg atom arrays. 
+As mentioned in our response to point 2(a) above, Rydberg atom arrays have a critical advantage over optical lattices. 
+This advantage makes them a more favorable platform compared to optical lattices. To achieve an experimental realization with Rydberg atom arrays, a proposal tailored to Rydberg atom arrays is necessary.
+% Since Rydberg atom arrays are a much more practical platform than optical lattices and for an experimental realization, a proposal that is tailored to Rydberg atom arrays is necessary.
+From the point of view of an experimental realization, it is important to distinguish Rydberg atom arrays and optical lattices.}
+
+\response{We agree with the Referee that the mapping of the Ising model on pyrochlore lattice to a $U(1)$ gauge theory is very well known. 
+This mapping only constitutes Sec.~II of our manuscript where we use the mapping specifically for the Rydberg Hamiltonian.
+However, the results of Sec.~III and the proposed protocols of Sec.~IV of our manuscript go significantly beyond the condensed matter literature and previous AMO proposal.
+These are novel (acknowledged by the Referee) and crucial for an experimental realization.
+Thus, Secs. III and IV are not simply an application of established ideas from condensed matter literature.
+%\commentJS{Alexey, it will be great if we can argue here why Rydberg atom arrays are ``better" than optical lattices.}
+% Although there are older proposals in other AMO systems regarding $U(1)$ spin liquids, they do not propose the correlators that should be measured and the protocols to do that in order to distinguish the QSL from the ordered states.
+% For an experimental realization on any AMO platform, answering these questions  specifically for that platform is necessary.}
+}
+
+\response{We have added the following sentence in the second paragraph of the introduction based on this point.}
+
+\wesay{Furthermore, the energy scales in Rydberg atom arrays are orders of magnitude larger than in optical lattices, enabling observation of quantum effects at much higher temperatures in Rydberg atom arrays than in optical lattices.}
+
+% -----------------------------------------------------
+\item \textit{Point 3 / Importance of stability results:}
+
+\textit{I cannot see the logic on why the authors reference to the debate in
+[24] as an interesting point that needs to be clarified. This is a
+fundamentally different liquid, different gauge theory, and different
+dimensionality. Also, I find the new formulation rather misleading. I
+think only Ref. [26] shall be cited in this context (same liquid, same
+gauge theory, same dimensionality), mentioning that stability with
+respect to LR couplings is very much expected here.}
+
+
+\response{Our response: In Ref.~[24] (G.~Semeghini et ~al.~\cite{semeghini2021}), the long-range van der Waals interactions were found to destabilize the QSL. While it is true that their QSL was a fundamentally different liquid, different gauge theory, and in different dimensionality, their work suggests an important point that long-range interactions can destabilize a QSL. It raises an important question: ``If the $\mathbb{Z}_2$ QSL is destabilized by van der Waals interactions in 2D, is the $U(1)$ QSL in 3D stable against van der Waals interactions?". According to the Referee, the stability in 3D is very much expected since S.~V.~Isakov et ~al.~\cite{isakov2005why} showed stability of the ice manifold to dipolar-like interactions which are much stronger than the van der Waals interactions. As pointed out in our response to point number 2(c) above, the point of Ref.~\cite{isakov2005why} was to show that dipolar-like interactions are special interactions. Thus, stability with respect to dipolar-like interactions does not imply stability with respect to van der Waals interactions. In fact, our result of Sec.~III~A~2 shows that the van der Waals interaction splits the degeneracy of the ice manifold and chooses the ice FM to be the ground state. Thus we think it is relevant to cite both Ref.~[24]  (G.~Semeghini et ~al.) and Ref.~[26] (S.~V.~Isakov et  al.). To clarify this point in the manuscript, we have added the following text right before the beginning of Sec.~III:}
+\wesay{We note that, despite the faster decay of van der Waals interactions compared to dipolar-like interactions of Ref.~\cite{isakov2005why}, the former splits the degeneracy of the ice manifold (see Sec.~III~A~2). \textcolor{black}{Thus, in our work, it is important to study the effects of the van der Waals interaction more closely.}}
+
+
+% -----------------------------------------------------
+\item \textit{Point 4 / Validity of quantum treatment}
+
+\textit{I appreciated the extra analysis, but this does not change my overall
+opinion of the work: the phase diagram is yet to be solidly
+established, despite the fact that methods to do that are surely
+available.}
+
+\response{Our response: We acknowledged in our previous report that the phase diagram is not completely established yet.  Doing so will require a Quantum Monte Carlo calculation to be done which in itself is a project worth its own manuscript. To emphasize this point, we have added the following sentence in the second paragraph of the Discussion section (Sec.~V).}
+
+\wesay{\textcolor{black}{Our ground state phase diagram is the result of an approximate calculation.} A quantum Monte Carlo calculation is required to firmly establish the phase diagram, and we leave it to future work.}
+
+\item \textit{So, based on the points above, I stand firm on my original opinion,
+that this is a solid, technical work that does not meet PRX impact and
+novelty criteria.}
+
+\response{Our response: 
+% Judging the impact is a very subjective task, and we leave it to the Editor to judge the impact of our work.
+We believe that our work brings us one step closer to conclusively realizing a system that is in a $U(1)$ quantum spin liquid phase, something that the condensed matter community has been trying for decades.}
+
+\response{We have provided objective rebuttals to the Referee's points 2(a), 2(b), 2(c), 2(d), 3, and 6. In these rebuttals, we have shown why Rydberg atom arrays are a more suitable platform than optical lattices, why the effects of van der Waals interactions are not obvious and are  important to consider, and explained the real-space Fredenhagen Marcu order parameter. 
+% As far as point 4 of the Referee is concerned, it is a subjective opinion. 
+As far as point 4 of the Referee is concerned, we agree that our phase diagram is yet to be solidly established. However, we believe that establishing the phase diagram using quantum Monte Carlo deserves its own manuscript.
+Our rebuttals lead us to disagree with the Referee's conclusion that our work does not meet the PRX impact and novelty criteria. }
+
+\item \textit{About the minor points, I have only one extra comment that the authors
+might consider to further clarify their work:}
+
+\textit{Point 8A: I tend to agree with the authors' revised opinion on this,
+even if, given the major change here, a more detailed discussion on
+why this change was made in the text would have been useful to the
+reader.}
+
+\response{Our response: We have added more text to justify why the real-space version of the Fredenhagen-Marcu (FM) order parameters can be used based on the literature. We believe that these references allow interested readers to visit the literature and see why the real-space version of the correlators can be used.  We have added the following text to the first paragraph of Sec.~IV~C: }
+
+\wesay{\textcolor{black}{However, in the presence of matter fields (which are generically always present), the Wilson loop follows the perimeter law in the confined phase as well \cite{fradkin2013field,shankar2017quantum}} because of the screening of the confining forces by matter field fluctuations.}
+
+\wesay{\textcolor{black}{In its original formulation~\cite{fredenhagen1983charged}, the FM order parameters involved expectation values of operators in space-time.} 
+Later, Fredenhagen and Marcu proposed that a real-space version of these order parameters could also diagnose deconfinement~\cite{fredenhagen1988dual}. In the context of condensed matter physics, Ref.~\cite{gregor2011diagnosing} (sections 5.1 and 8.2) demonstrated that these real-space FM order parameters can be used to detect deconfinement in $\mathbb{Z}_2$ and $U(1)$ gauge theories with matter.
+They have also considered effective gauge theories without Lorentz invariance and shown that the real-space version can be used to diagnose deconfinement.
+They further suggested that these real-space correlators could help identify phases in quantum dimer models with gapped spinons. More recent works~\cite{verresen2021,xu2024critical} have continued to use real-space versions as diagnostics for deconfinement. Here, we adopt the real-space FM order parameters because they are simpler to measure experimentally than their space-time counterparts.}
+
+\wesay{Another way to understand the FM order parameters is that they determine if the perimeter law of the Wilson loop is arising from matter fluctuations or gauge  field fluctuations. If it is arising from matter fluctuations in the confined phase, the numerator and the denominator decay at the same rate and their ratio is a constant. If it is partially arising  from gauge fluctuations in the deconfined phase, then the denominator decays slower than the numerator and the FM order parameters go to zero~\cite{fredenhagen1983charged}. This argument is also applicable to real-space Wilson loops~\cite{fredenhagen1988dual,gregor2011diagnosing,xu2024critical,verresen2021}.}
+
+
+
+% -----------------------------------------------------
+
+
+\end{enumerate}
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+
+\section{Response to the report of the Fourth Referee}
+\begin{enumerate}
+    \item \textit{This work proposes realization of a spin model closely related to
+quantum spin ice, which may host a U(1) quantum spin liquid (QSL) in
+3D, using trapped Rydberg atoms. The core of the proposal is not
+particularly original, as numerous previous suggestions have been made
+to simulate quantum spin systems using Rydberg atoms and to simulate
+quantum spin ice in atomic systems more broadly.}
+
+\textit{But it would be a significant advance if an experiment could
+unambiguously demonstrate a quantum spin liquid in an analogue quantum
+simulator, and so the question is how much this work contributes to
+that goal. In my opinion, there are two main contributions here.}
+
+\textit{The first is to identify a plausible candidate for the classical
+ground state in the presence of long-range interactions between the
+Rydberg atoms, and to calculate a range of Rabi frequencies where this
+is expected to be the quantum ground state. I think this is a very
+useful contribution, although, as the authors note, in actual
+experimental realizations it may be necessary or desirable to use
+dressing to modify the long-range interactions, which would render
+these results less relevant.}
+
+\response{Our response: We thank the Referee for going through our manuscript and submitting their report. Based on the identification of the contribution  of our work by the Referee, we have made the following changes in the last paragraph of the Introduction in the revised manuscript. }
+\wesay{\textcolor{black}{However, once we include the long-range $1/r^6$ interactions beyond nearest-neighbor, the classical landscape is no longer degenerate, and it is a priori unclear if the spin liquid survives as the ground state. We attempt to answer this in Sec.~III by} first identifying  the classical ground state in the presence of long-range interactions, which we find to be a ``chain state''~\cite{mcclarty2015chain}. Then we compare its energy to the \textcolor{black}{energy of an ansatz wave function for the spin liquid. Within our approximation, we find} a window of Rabi frequencies for which the system is in the quantum spin liquid phase. \textcolor{black}{By dialing up the Rabi frequency, for fixed detuning and interaction strength $\ldots$ }}
+
+\item \textit{As other referees have pointed out, it is difficult to be sure of the
+accuracy the numerical value for the transition point. (I assume the
+use of Borel-Pade approximants in the new Appendix A is valid and
+correct, but I'm not able to judge.) I think it should be clearly
+stated after Eq. (41) that the quoted uncertainty is not the
+uncertainty of the transition point, which is surely several orders of
+magnitude larger, but merely the uncertainty of the computed value
+within the (approximate) method being used.}
+
+\response{Our response: We thank the Referee for this suggestion. We have now stated after Eq.~(41) that the uncertainty we write is the uncertainty in the computed value within the approximate method being used.}
+
+\wesay{We note that there are three sources of uncertainty: (1) truncation of the perturbation series in Eq.~(23), (2) evaluating energies in ansatz state $\ket{\Psi_{\text{RK}}}$ instead of the true eigenstate of $\hat{H}_{\text{eff}}$, and (3) the uncertainty in the Monte Carlo calculation.  The uncertainty reported in Eq.~(41) is only the uncertainty arising from the Monte Carlo calculation.}
+
+\item \textit{The other contribution is to propose experimental signatures to detect
+the presence of the QSL and to compare their behavior across the three
+phases expected in the system. Some of the results are not new (some
+go as far back as Ref. [57]), but others are specific to the Rydberg
+realization or otherwise new. The comparisons between the three phases
+are also new and are likely to be very useful for experiments.}
+
+\response{Our response: 
+% We are happy to see that the Referee finds our proposed experimental signatures and the comparison of their behaviors in the three phases as one of the main contributions of our work which will likely be useful for experiments. 
+Some of the correlators we propose to measure are based on the correlators calculated using effective field theory and  classical Monte Carlo in Ref.~[57] by Hermele et ~al.~\cite{hermele2004}. These are the plaquette X correlator, the monopole correlator, and the spin-spin correlator. While we have used these correlators in our work, we have gone beyond Hermele et ~al.~by providing explicit protocols for measuring these in an experiment. Furthermore, we have proposed new correlators such as (1) the plaquette Y correlator whose decay ($\propto 1/\mathsf{R}^4$) in the QSL phase will be easier to detect experimentally than the plaquette X correlator ($\propto 1/\mathsf{R}^8$), (2) the two Fredenhagen-Marcu (FM) order parameters which can conclusively distinguish a QSL from the ordered phases.
+Based on this feedback by the Referee, we have made the following modification to the last paragraph of the Introduction:}
+
+\wesay{\textcolor{black}{We explain the behavior of the correlation functions in each phase of the phase diagram, and provide protocols to measure them,} which we expect to
+%could potentially 
+be useful for experiments.}
+
+\item \textit{On balance, I think the contribution made by the work is sufficient to
+justify publication in PRX. As noted above, the proposal itself does
+not qualify as ``landmark'' or ``seminal", but the work as a whole
+potentially makes substantial contributions to what would be a
+significant experimental advance.}
+
+\response{Our response: We are pleased to note that the Referee finds the contribution of our work sufficient to justify publication in PRX.}
+
+\item \textit{As far as I can tell, the authors have responded satisfactorily to the
+specific comments of the other referees (though I can't comment on the
+point about Pade approximants, as noted above). I think the expansion
+of Section IV is a big improvement, since this is one of the main
+contributions. Pointing out that the ``ice ferromagnet" is a chain
+state is also a helpful addition.}
+
+\response{Our response: 
+% We are delighted that the Referee finds our responses to the specific comments of other Referees satisfactory.
+Based on this comment of the Referee, we think it will be useful for some readers to know already during the Introduction to the paper that the ground  state for $\Omega = 0$ is actually a ``chain state". We have added the following sentence to the last paragraph of the Introduction:
+%We now explicitly mention ``chain state" in the Introduction based on this comment of the Referee. 
+}
+
+\wesay{\textcolor{black}{We attempt to answer this in Sec.~III by} first identifying a plausible candidate for the classical ground state in the presence of long-range interactions, which we find to be a ``chain state"~\cite{mcclarty2015chain}.}
+
+\end{enumerate}
+
+
+
+% ------------------------------------------------------------------
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+
+\section{Response to the additional comments from the First Referee}
+\begin{enumerate}
+    \item \textit{I had a brief look at these reports.}
+\textit{The points made by the Third Referee all appear to be scientifically
+correct. (But I am confused by their Refs. 24 and 26 - in the current
+version of the draft those references don’t make sense in the
+discussion).}
+
+\response{Our response: We thank the Referee for going through the Third Referee's report. The confusion regarding the Refs. 24 and 26 is potentially because the Third Referee is referring to Refs. 24 and 26 of our previous Referee report and not the revised manuscript. We are confident that the Third Referee if referring to G.~Semeghini et ~al.~\cite{semeghini2021} as Ref.~24 and S.~V.~Isakov et ~al.~\cite{isakov2005why} as Ref.~26. To avoid this confusion in this report, we have used reference labels R1, R2, $\ldots$}
+
+\item \textit{In the end it comes down to a judgment call on the importance of the
+paper. There are several novel points in the paper, but it is hard to
+judge impact. If this work leads to experimental efforts, then the
+impact would be justified. I think it would be useful to bring it to
+the attention of a wider community in PRX.}
+
+\response{Our response: We are happy that the Referee thinks it would be useful to bring our work to the attention of a wider community in PRX.}
+
+\end{enumerate}
+
+
+
+
+% ------------------------------------------------------------------
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+
+\section{Response to the additional comments from the Fourth Referee}
+\begin{enumerate}
+    \item \textit{I've read the second report of the Third Referee and I don't think I
+would like to make any changes to my own report. I still think that,
+on balance, the contribution is enough to justify publication in PRX.}
+
+\response{Our response: We thank the Referee for reading the Third Referee's report and again, we are happy that the Referee finds our contribution enough for publication in PRX. }
+
+\item \textit{I agree with the Third Referee regarding points 2(a) and (d), that the authors overstate (in their responses, not in the manuscript) the originality of an AMO simulator for 3D gauge theories. I also agree that point 2(b) (monopole correlator diagnostic for QSL) is ``a true novelty", but I'm not as concerned that it's ``highly technical" as long as it's plausible for experiments.}
+
+\item \textit{Re: points 2(c) and 3, Moessner and collaborators showed that dipolar interactions in spin ice are quite special, and the analysis of vdW interactions in this work is quite different and probably more relevant to the general case. The other points are really going deep into the technical details.}
+
+\response{Our response: We agree with the Referee that the dipolar-like interactions studied by Moessner and collaborators in Ref.~\cite{isakov2005why} are special. The degeneracy of the ice manifold is preserved in the presence of these interactions because of screening. As we find, the van der Waals interaction indeed splits the degeneracy and  its effect on the quantum spin liquid needs to be studied despite it being much weaker than the dipolar-like interaction. We have clarified this point by adding the following sentence right before the beginning of Sec.~III.}
+
+\wesay{We note that, despite the faster decay of van der Waals interactions compared to dipolar-like interactions of Ref.~\cite{isakov2005why}, the former splits the degeneracy of the ice manifold (see Sec.~III~A~2). \textcolor{black}{Thus, in our work, it is important to study the effects of the van der Waals interaction more closely.}}
+
+
+
+\item \textit{It's very difficult to predict whether experimental realizations of these systems will be possible, especially for me as a theorist, and it's even harder to tell whether a particular theory paper will make a difference one way or the other. I hope that's helpful.}
+
+
+\end{enumerate}
+
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+% \end{enumerate}
+\section{Summary of changes}
+
+%(The reference numbers here are not the same as the reference numbers in any version of the manuscript or the previous Referee report.)
+\begin{enumerate}
+\item Added a sentence to the second paragraph of the Introduction explaining the differences in the energy scales of Rydberg atom arrays and optical lattices.
+    \item Added sentences to the end of the second-to-last paragraph of the Introduction highlighting how our proposal goes beyond the previous proposal (Ref.~\cite{tewari2006emergence}) on optical lattices.
+    \item Mentioned in the Introduction that the classical ground state is a ``chain state". 
+    \item Mentioned towards the end of the Introduction the shift from pinch-point singularities to nonlocal correlators.% that our work brings about.
+    \item Added a sentence before the beginning of Sec.~III explaining why S.~V.~Isakov et  al.~\cite{isakov2005why} does not imply stability against van der Waals interactions.
+    \item Added two sentences after Eq.~(41) clarifying the uncertainty mentioned in that equation.
+    \item Added explanation about the real-space version of FM order parameters above and below Eq.~(82).
+    \item Added a sentence in the Discussion (Sec.~V) about a quantum Monte Carlo being required for establishing the phase diagram concretely.
+    
+\end{enumerate}
+
+
+\bibliography{rydbergs.bib}
+
+%\citeA{anderson1956ordering}
+
+%\newrefcontext[labelprefix=A]
+%\printbibliography[title={Category A},category=catA]
+
+
+
+\end{document}

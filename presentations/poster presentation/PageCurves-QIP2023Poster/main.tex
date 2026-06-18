@@ -1,0 +1,37 @@
+\documentclass{beamer}
+\pdfoutput=1
+\usepackage[
+  orientation=portrait,
+  scale=1.25,        % font scale factor
+  size=a0
+]{beamerposter}
+\usepackage{victor}
+\usepackage{laurens}
+\usepackage{chris}
+
+\usetheme{iosue}
+
+\addbibresource{references.bib}
+
+\input{meta}
+
+
+\begin{document}
+\nocite{iosue2022page}
+
+\begin{columns}[T]
+
+    \begin{column}{0.45\textwidth}
+        \input{body/column1.tex}
+    \end{column}
+    
+    \begin{column}{0.45\textwidth}
+        \input{body/column2.tex}
+        
+        \subsection{References}
+        \printbibliography[heading=none]
+    \end{column}
+
+\end{columns}
+
+\end{document}

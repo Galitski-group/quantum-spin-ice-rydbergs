@@ -1,0 +1,86 @@
+Below are the responses to the questions asked followed by a change at the end that we would like to be made.
+
+Q1: Change accepted.
+
+Q2: Alexey V. Gorshkov's ORCID is missing in the page proof. Please add their ORCID which is 0000-0003-0509-3421
+
+Q3: Changes accepted.
+
+Q4: Okay.
+
+Q5: Okay. Looks good.
+
+Q6: All the figures look right.
+
+Q7: Okay.
+
+Q8: Looks good.
+
+Q9: Looks good. It does.
+
+Q10: Sounds good.
+
+Q11: The multiplication sign is not necessary. Please feel free to remove it if the journal requires.
+
+Q12: Okay. Looks good.
+
+Q13: The literature mostly uses '2+1D' and I would prefer to use '2+1D' as opposed to '(2+1)D'. Please use '2+1D' if it is in accordance with the journal style.
+
+Q14: Could you please change "... is equivalent to the one with ..." to "... is equivalent to the dimer model with ..."?
+
+Q15: DMRG is Density Matrix Renormalization Group. Could you please change line 527 from "... using DMRG ..." to " ... using Density Matrix Renormalization Group (DMRG) ..."?
+
+Q16: Sounds good.
+
+Q17: Yes, it is correct. Thanks!
+
+Q18: Yes, looks good.
+
+Q19: It does.
+
+Q20: Could you change line 960 as follows: "... with the RVB ..." changes to "... with the Resonating Valence Bond (RVB)"?
+
+Q21: Moving footnotes to references sounds good. Writing "3+1D" is much more common in the literature than "(3+1)D". I would prefer if the former is used in the footnote.
+
+Q22: Thanks for pointing this out. We have omitted the form factors for three entries of the table. The correct way to write the last sentence would be "... factors multiplying $1/R^4$, $1/\mathsf{R}^4$, and $ 1/\mathsf{R}^8$ that ...". Can you please make this change?
+
+Q23: Could you please replace "Exp." by "Exponential" and "const." by "constant" at all places in Table II?
+
+Q24: Addressed in the response to Q23.
+
+Q25: Yes it is correct.
+
+Q26: Could you please change (3+1)D to 3+1D? Could you make the same change on lines 1152, 1692, and 1823? 
+
+Q27: It should be "points of view". Could you change it?
+
+Q28: Thanks for pointing this out. Could you replace "FM" with "Fredenhagen-Marcu" on lines 1453, 1458, 1467, 1486, and 1493. Could you also remove "(FM)" on line 1450? This will remove all the uses of FM for Fredenhagen-Marcu.
+
+Q29: Please replace "one" by "product" on line 1506.
+
+Q30: Some changes are required in the acknowledgments  section. These are:
+	(a) line 1834: replace "(Award No. DE-SC0020312)" with "(Awards No. DE-SC0020312 and No. DE-SC0025341)"
+	(b) lines 1835-1836: replace "(Award No. DE-SC0019040)" with "(Awards No. DE-SC0019040 and No. DE-SC0024220)"
+	(c) line 1836: replace "NSF PFCQC program" with "NSF STAQ program"
+
+Q31: The reference for the data is the same as the reference for the code (Ref. 91 in the proof cover). The authors of the code and the data are Gautam Nambiar and Jeet Shah, the year is 2024, there is no version number, the name of the repository is "quantum-spin-ice-rydbergs", and the DOI is: 10.5281/zenodo.14709542 (URL: https://doi.org/10.5281/zenodo.14709541). Please update the reference so that it contains this information. 
+
+Q32: Yes, that's correct.
+
+Q33: I verify that the external links are correct.
+
+Q34: It is a book with the DOI: https://doi.org/10.1007/978-3-642-10589-0. The full reference is: "Introduction to Frustrated Magnetism, Springer Series in Solid-State Sciences Vol. 164, edited by F. Lacroix, C. Mila, and P. Mendels (Springer, New York, 2011)."
+
+Q35: Okay. Looks good.
+
+Q36: It is an article with DOI: https://doi.org/10.1016/0370-2693(78)90737-2 . It was published in Physics Letters B, Volume 72, Issue 4 on 16 January 1978, pages 477-480.
+
+Q37: The code availability and the data availability references are the same. Please refer to the response to Q31 for the required information.
+
+Please also make the following change:
+line 1580: "ice" was omitted as seen from the redlined version. Please restore it. The line should read "... ground state in the ice FM phase can be ...".
+
+If you need any additional information, please let me know.
+
+- Jeet Shah
+

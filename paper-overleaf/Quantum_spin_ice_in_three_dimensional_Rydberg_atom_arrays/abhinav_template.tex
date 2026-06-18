@@ -1,0 +1,76 @@
+\documentclass[pra,aps,onecolumn]{revtex4-2}
+\usepackage[dvipsnames]{xcolor}
+% \usepackage[margin=2cm]{geometry}
+% \usepackage{hyperref}
+% \hypersetup{
+%   colorlinks = true,
+%   urlcolor = magenta,
+%   linkcolor = red,
+%   citecolor = blue
+% }
+% \usepackage{url}
+% \usepackage{amsmath}
+% \usepackage{amsfonts,dsfont}
+% \usepackage{amssymb,amsthm}
+% \usepackage{graphicx}
+% \usepackage{physics}
+% \usepackage[all]{hypcap}
+% \usepackage{url}
+% \usepackage{booktabs}
+% \usepackage{textcomp, complexity}
+% \usepackage{times}
+
+\usepackage{mdframed}
+\newmdenv[topline=false,rightline=false,bottomline=false,linewidth=2pt]{leftborder}
+\newcommand{\wesay}[1]{
+	\begin{leftborder}
+		\color{Mulberry}{#1}
+	\end{leftborder}
+}
+\newcommand{\wesaid}[1]{
+	\begin{leftborder}
+		\color{BrickRed}{#1}
+	\end{leftborder}
+}
+
+% \usepackage{textcomp, complexity}
+% \usepackage[ruled, linesnumbered, procnumbered]{algorithm2e}
+% \newcommand{\ccol}[2]{\color{#1}#2\color{black}}
+% \usepackage[capitalise,compress]{cleveref}
+% \crefname{section}{Sec.}{Section} % abbreviate Section
+% \crefname{subsection}{subsection}{Subsection}
+
+% \usepackage{booktabs}
+% \usepackage{multirow}
+
+\begin{document}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theequation}{\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\newcommand\Tstrut{\rule{0pt}{3ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+\begin{flushright}
+\today \\
+\end{flushright}
+To \\ Physical Review Letters, \\ APS Publishing
+
+Dear Dr.\,Villar,
+
+We thank you once again for the consideration given to the manuscript. We also thank all the Referees for their time.
+
+The point brought up by Referee D, namely that we mention a change to a previous version but the version in question is not public, is entirely fair. To rectify this, we have changed that sentence on page 4 to cite the first arXiv version (v1) of the manuscript, by saying instead:
+\wesaid{Stronger Lieb-Robinson bounds can increase $t_\mathrm{easy}$,
+and faster state-transfer can reduce $t_\mathrm{hard}$, as evidenced by the
+improvement over the first version of this manuscript [59] due to results from Ref. [44].}
+
+We have also attached a file that highlights these changes, with additions in blue and deletions in red. The only other changes highlighted in that file are cosmetic changes in the references.
+
+Thanking you, \\
+Sincerely, \\
+The authors
+
+\end{document}

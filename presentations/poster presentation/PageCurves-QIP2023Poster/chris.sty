@@ -1,0 +1,24 @@
+% \newcommand{\note}[1]{{\color{red} [#1]}}
+% \WithSuffix\newcommand\note*[1]{{\color{red} #1}}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{physics}
+\usepackage{fixcmex}
+% \usepackage{mathrsfs,soul}
+% \usepackage{tikz,tikz-cd,bbm,rotating}
+% \usetikzlibrary{shapes.geometric}
+\global\long\def\rep#1{\text{Rep}(#1)}%
+\global\long\def\a{\mathcal{A}}%
+\global\long\def\Cl{\mathcal{C}}%
+\global\long\def\inv{\text{Inv}}
+% \global\long\def\ostar{\textcircled{$\star$}}%
+
+\makeatletter
+\newcommand{\ostar}{\mathbin{\mathpalette\make@circled\star}}
+\newcommand{\make@circled}[2]{%
+  \ooalign{$\m@th#1\smallbigcirc{#1}$\cr\hidewidth$\m@th#1#2$\hidewidth\cr}%
+}
+\newcommand{\smallbigcirc}[1]{%
+  \vcenter{\hbox{\scalebox{0.77778}{$\m@th#1\bigcirc$}}}%
+}
+
+\makeatother

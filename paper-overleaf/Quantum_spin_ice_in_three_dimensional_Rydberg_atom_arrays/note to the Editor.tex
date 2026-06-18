@@ -1,0 +1,178 @@
+\documentclass[
+onecolumn,
+superscriptaddress,
+longbibliography,
+nofootinbib,
+ amsmath,amssymb,
+ aps,
+prb
+]{revtex4-2}
+
+
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage[normalem]{ulem}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{comment}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{appendix}
+\usepackage{caption}
+\usepackage{enumerate}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{subcaption}
+\usepackage{graphicx}% Include figure files
+\graphicspath{ {./images_response/} }
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage[mathscr]{euscript}
+\usepackage[scr=boondox]{mathalpha}
+\usepackage{bm}% bold math
+\usepackage[linktocpage]{hyperref}% add hypertext capabilities
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue, urlcolor=blue, breaklinks=true}
+
+
+\renewcommand{\bibnumfmt}[1]{[R#1]}
+\renewcommand{\citenumfont}[1]{R#1}
+
+
+
+
+
+\newcommand{\commentGN}[1]{{\color{purple}\footnotesize{GN: #1}}}
+\newcommand{\commentJS}[1]{\textcolor{blue}{\footnotesize{JS: #1}}}
+\newcommand{\response}[1]{\textcolor{Mulberry}{#1}}
+
+\newcommand{\vS}{\vec{S}}
+\newcommand{\utop}{\ensuremath{U(1)_{\text{top}}}}
+\newcommand{\chiof}[3]{\ensuremath{(\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2})\vdot \hat{\va{S}}_{#3}}}
+\newcommand{\Sof}[1]{\ensuremath{\hat{\va{S}}_{#1}}}
+\newcommand{\crossof}[2]{\ensuremath{\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2}}}
+\newcommand{\dotof}[2]{\ensuremath{\hat{\va{S}}_{#1}\vdot \hat{\va{S}}_{#2}}}
+\newcommand{\parchi}[4]{\ensuremath{\hat{\vb{S}}_{#1}^{#4}(\crossof{#2}{#3})^{#4}}}
+\newcommand{\upnchi}{\ensuremath{\hat{\chi}_{\triangle,\vec{n}}}}
+\newcommand{\downnchi}{\ensuremath{\hat{\chi}_{\triangledown,\vec{n}}}}
+\newcommand{\Upchi}[2]{\ensuremath{\chi_{\triangle,\vb{n}+(#1,#2)}}}
+\newcommand{\Downchi}[2]{\ensuremath{\chi_{\triangledown,\vb{n}+(#1 , #2)}}}
+\newcommand\bdot[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+\newcommand{\mysymb}[2]{\mathord{\vcenter{\hbox{\includegraphics[height=#2 ex]{#1}}}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Tm}{\hat{\mathcal{T}}_R}
+\newcommand{\tnew}{\mathrm{t}}
+\newcommand{\tot}[1]{#1_{\mathrm{tot}}}
+\newcommand{\dual}[1]{\boldsymbol{\mathsf{#1}}}
+
+\renewcommand\thefigure{R\arabic{figure}}   
+
+\makeatletter
+\newcommand\xlabel[2][]{\phantomsection\def\@currentlabelname{#1}\label{#2}}
+\makeatother
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+%%% Custom %%%
+\usepackage{mdframed}
+\newmdenv[topline=false,rightline=false,bottomline=false,linewidth=2pt]{leftborder}
+\newcommand{\wesay}[1]{
+	\begin{leftborder}
+		\color{orange}{#1}
+	\end{leftborder}
+}
+\newcommand{\wesaid}[1]{
+	\begin{leftborder}
+		\color{Mulberry}{#1}
+	\end{leftborder}
+}
+
+\begin{document}
+\title{Responses to Referees - 2\\Manuscript XD10747 (Quantum spin ice in three-dimensional Rydberg atom arrays)}
+\maketitle
+
+% \commentJS{The gray text will be removed before submitting the report.}
+
+% {\color{gray}From the Editor:
+
+% Dear Jeet Shah,
+
+% First of all, the editors of Physical Review X (PRX) would like to
+% thank you and your co-authors again for your interest in our journal.
+% The manuscript has now been reviewed again by three of our referees.
+% Please note that the Second Referee who had seen the paper previously
+% was not available, we therefore introduced a new referee – the Fourth
+% Referee. All of the pertinent comments on the manuscript from the
+% referees are appended below.
+
+% As you will see, the recommendations from the referees remain to be
+% mixed, but our editorial decision should be based on the referees’
+% specific comments on what they feel to be the paper's contribution,
+% and what its significance might be. In this regard, although the First
+% Referee feels that all of the raised questions have been properly
+% addressed, the Fourth Referee still has some minor comments, e.g.
+% regarding the explanation of the uncertainty in Eq. (41) and the
+% comparison with the literature, such as [57], for experimental
+% signatures to detect QSL, etc. On the other hand, the Third Referee
+% thinks that only part of the comments raised before have been
+% addressed, and 3 specific points remain unsolved.
+
+% Given the mixed feedback, we decided to go back to the First and the
+% Fourth Referees, asking for their comments on the Third Referee’s
+% criticisms. Their feedback is also attached below for your
+% information. Briefly speaking, both referees think that the points
+% made by the Third Referee are scientifically correct. Nevertheless,
+% both of them still feel the manuscript is an important contribution to
+% the field and recommend its publication in PRX (after some minor
+% revision, see below).
+
+% We therefore invite you to consider the remaining comments from the
+% referees, revise the manuscript as appropriate, and resubmit it at
+% your earliest convenience. More specifically, please provide a
+% point-by-point response to all of the recommendations and criticisms
+% from the Fourth Referee – we will run the revised version by the
+% referee again – and please also consider the comments from the First
+% and the Fourth Referees related to the Third Referee’s report
+% (especially related to the References [24, 26]). Please also include a
+% summary of significant changes made to the manuscript. Please also
+% provide a version of the manuscript wherein changes made to the text
+% are marked out.
+
+% We hope that you find our referees' comments helpful when preparing a
+% revised manuscript. And thanks again for your support of our journal.
+
+% Best regards,
+
+% Yun}\\
+
+% \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+% \end{enumerate}
+\section{Summary of changes}
+
+%(The reference numbers here are not the same as the reference numbers in any version of the manuscript or the previous Referee report.)
+\begin{enumerate}
+\item Cited the published version for all of the arXiv preprints that are now published. This includes the ones mentioned by the Editor.
+\item Added ORCIDs of the authors.
+\item Added a Guthub link where our Monte Carlo code is available. This is done by modifying the sentence that is right before the start of Sec.~III~A~1 as ``...numerically using classical Monte Carlo sampling." $\rightarrow$ ``...numerically using classical Monte Carlo sampling (code available online, see [91])." where Ref.~[91] is the Github link.
+\end{enumerate}
+
+
+\bibliography{rydbergs.bib}
+
+%\citeA{anderson1956ordering}
+
+%\newrefcontext[labelprefix=A]
+%\printbibliography[title={Category A},category=catA]
+
+
+
+\end{document}

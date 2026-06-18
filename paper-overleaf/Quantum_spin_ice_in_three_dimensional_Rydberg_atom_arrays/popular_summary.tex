@@ -1,0 +1,148 @@
+\documentclass[
+onecolumn,
+superscriptaddress,
+longbibliography,
+nofootinbib,
+ amsmath,amssymb,
+ aps,
+prb
+]{revtex4-2}
+
+
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage[normalem]{ulem}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{comment}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{appendix}
+\usepackage{caption}
+\usepackage{enumerate}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{subcaption}
+\usepackage{graphicx}% Include figure files
+\graphicspath{ {./images_response/} }
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage[mathscr]{euscript}
+\usepackage[scr=boondox]{mathalpha}
+\usepackage{bm}% bold math
+\usepackage[linktocpage]{hyperref}% add hypertext capabilities
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue, urlcolor=blue, breaklinks=true}
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+% \usepackage{booktabs}
+% % \usepackage{textcomp, complexity}
+% \usepackage{times}
+
+
+\newcommand{\commentGN}[1]{{\color{purple}\footnotesize{GN: #1}}}
+\newcommand{\commentJS}[1]{\textcolor{blue}{\footnotesize{JS: #1}}}
+\newcommand{\response}[1]{\textcolor{Mulberry}{#1}}
+
+\newcommand{\vS}{\vec{S}}
+\newcommand{\utop}{\ensuremath{U(1)_{\text{top}}}}
+\newcommand{\chiof}[3]{\ensuremath{(\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2})\vdot \hat{\va{S}}_{#3}}}
+\newcommand{\Sof}[1]{\ensuremath{\hat{\va{S}}_{#1}}}
+\newcommand{\crossof}[2]{\ensuremath{\hat{\va{S}}_{#1}\cross \hat{\va{S}}_{#2}}}
+\newcommand{\dotof}[2]{\ensuremath{\hat{\va{S}}_{#1}\vdot \hat{\va{S}}_{#2}}}
+\newcommand{\parchi}[4]{\ensuremath{\hat{\vb{S}}_{#1}^{#4}(\crossof{#2}{#3})^{#4}}}
+\newcommand{\upnchi}{\ensuremath{\hat{\chi}_{\triangle,\vec{n}}}}
+\newcommand{\downnchi}{\ensuremath{\hat{\chi}_{\triangledown,\vec{n}}}}
+\newcommand{\Upchi}[2]{\ensuremath{\chi_{\triangle,\vb{n}+(#1,#2)}}}
+\newcommand{\Downchi}[2]{\ensuremath{\chi_{\triangledown,\vb{n}+(#1 , #2)}}}
+\newcommand\bdot[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+\newcommand{\mysymb}[2]{\mathord{\vcenter{\hbox{\includegraphics[height=#2 ex]{#1}}}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Tm}{\hat{\mathcal{T}}_R}
+\newcommand{\tnew}{\mathrm{t}}
+\newcommand{\tot}[1]{#1_{\mathrm{tot}}}
+\newcommand{\dual}[1]{\boldsymbol{\mathsf{#1}}}
+
+\renewcommand\thefigure{R\arabic{figure}}   
+
+\makeatletter
+\newcommand\xlabel[2][]{\phantomsection\def\@currentlabelname{#1}\label{#2}}
+\makeatother
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+%%% Custom %%%
+\usepackage{mdframed}
+\newmdenv[topline=false,rightline=false,bottomline=false,linewidth=2pt]{leftborder}
+\newcommand{\wesay}[1]{
+	\begin{leftborder}
+		\color{BrickRed}{#1}
+	\end{leftborder}
+}
+\newcommand{\wesaid}[1]{
+	\begin{leftborder}
+		\color{Mulberry}{#1}
+	\end{leftborder}
+}
+
+\begin{document}
+\title{Popular summary \\Manuscript XD10747 (Quantum spin ice in three-dimensional Rydberg atom arrays)}
+
+\maketitle
+
+
+\section{Guidelines}
+Each published article will be accompanied on our website by a nontechnical summary that conveys the context, essential message(s), and significance of the work to all readers. We hope the Popular Summary can help the work be broadly appreciated by a wide readership, including non-specialists.
+
+Physical Review X requires that authors submit an accompanying Popular Summary along with their manuscript. Authors are not required to submit this Popular Summary at the time of submission, though please be advised that it has to be ready at acceptance to avoid delays in the publication process.
+
+General Guidelines
+
+Keep it concise (max 250 words), readable, objective, and with broad appeal.
+Avoid mathematical expressions.
+Focus on the essence of your work instead of technical details.
+Use a casual, conversational tone and avoid jargon. Explain essential technical terms in plain language.
+Write as if explaining to a junior physics undergraduate student: someone familiar with physics fundamentals but likely unfamiliar with your area of research.
+Adopt a three-paragraph structure:
+
+First paragraph: Big picture
+Explain why your investigation is important.
+State the problem you are addressing and the main findings.
+Make this paragraph a summary within a summary—readers should grasp the core idea quickly.
+Second paragraph: Essential details
+Provide extra background and context.
+Describe how you conducted your research and the key insights gained.
+Focus on the most important aspects without overwhelming details.
+Third paragraph: Future outlook
+Briefly discuss potential future directions or logical next steps for the research.\\
+
+\hrule
+\vspace{1cm}
+
+Quantum spin liquids (QSLs) are exotic phases of matter in which spins fail to order in the conventional sense due to  quantum entanglement. This stands in stark contrast to ordered phases like ferromagnets and antiferromagnets, where spins align in regular patterns. QSLs are particularly intriguing because they host fractionalized excitations—quasi-particles with charges that are fractions of what is typically expected. These phases are described by emergent gauge theories, concepts that are central to modern physics. Despite their fascinating properties, observing and studying QSLs has been challenging, primarily because their defining features require non-local measurements.
+
+Our work proposes a novel approach to realize a specific type of QSL, known as a U(1) QSL, in three-dimensional Rydberg atom arrays. These arrays, which make use of highly excited (Rydberg) atoms, are emerging as a versatile platform for engineering exotic many-body quantum states. In our proposal, atoms are trapped in optical tweezers and arranged on a 3D lattice of corner-sharing tetrahedra, called the pyrochlore lattice. By tuning laser parameters, we predict that the system can stabilize the desired spin-liquid phase, characterized by the emergence of “photons,” “monopoles,” and “electric charges.”
+
+Our study not only demonstrates how to stabilize this QSL but also provides access to transitions out of the phase, including confinement-deconfinement and Higgs transitions. Furthermore, we propose experimental protocols to measure correlation functions that can conclusively detect the spin-liquid phase. By extending Rydberg-based quantum simulators into three dimensions, our work paves the way for realizing and probing these elusive phases of matter that have fascinated physicists for decades.
+
+\hrule
+\vspace{0.5cm}
+
+\section{Version 2}
+
+Quantum spin liquids (QSLs) are exotic phases of matter in which there is no ordering of spins in a conventional sense. This is in stark contrast with ordered phases such as ferromagnets and antiferromagnets in which spins have a regular arrangement. QSLs have interesting properties such as excitations that have a fraction of the charge of what one would typically expect. QSL are described by gauge theories, which are central to modern physics. The kind of QSL that we focus on is described by a modified version of electromagnetism. In this modified version, it is also possible to have “magnetic monopole” excitations along with “photons” and “electric charges”. 
+
+Recently Rydberg atom simulators have emerged as a promising platform for realizing exotic phases of matter. In these simulators, atoms in highly excited states are trapped in optical tweezers. We propose to trap these atoms in a 3D lattice made of corner sharing tetrahedra known as the pyrochlore lattice. By tuning the lasers in a certain regime of parameters, the QSL is stabilized as the ground state of the system.
+
+One of the central challenges related to QSLs is that their lack of conventional ordering makes them extremely difficult to detect in traditional condensed matter systems. We propose various correlation functions and protocols to measure these correlators that can conclusively detect a QSL. Thus, our work paves the way for realizing and probing these elusive phases of matter that have fascinated physicists for decades
+
+
+
+
+\bibliography{rydbergs.bib}
+\end{document}

@@ -1,0 +1,54 @@
+Dear Dr. Li,
+
+We are very happy to hear that PRX intends to accept our manuscript for publication.
+
+Here is a summary of final changes:
+
+1.	Cited the published version for all the arXiv preprints that are now published. This includes the ones mentioned by You. Cited Phys. Rev. Lett. 130, 043601 in the second paragraph of the Introduction.
+2.	Added ORCIDs of the authors.
+3.	Added a GitHub link where our Monte Carlo code is available. This is done by modifying the sentence that is right before the start of Sec. III A 1 from “...numerically using classical Monte Carlo sampling.” to “...numerically using classical Monte Carlo sampling (code available online, see [91]).” where Ref. [91] is the GitHub link.
+
+We are including the popular summary with this submission. 
+
+Our response to the two requests:
+
+(i)	Yes, we will supply a visually appealing figure to draw reader’s interest.
+(ii)	We would like our Twitter handles to be tagged in outreach posts. Here are the twitter handles: Jeet Shah - @jeetshah333 and Victor Galitski - @VictorGalitski
+
+Thank you very much.
+
+Sincerely,
+Jeet Shah, Gautam Nambiar, Alexey Gorshkov, and Victor Galitski
+
+
+
+
+Dear Dr. Li,
+
+We are very happy to hear that PRX intends to accept our manuscript for publication.
+
+Here is a summary of final changes:
+
+1.	Cited the published version for all the arXiv preprints that are now published. This includes the ones mentioned by You. Cited Phys. Rev. Lett. 130, 043601 in the second paragraph of the Introduction.
+2.	Added ORCIDs of the authors.
+3.	Added a GitHub link where our Monte Carlo code is available. This is done by modifying the sentence that is right before the start of Sec. III A 1 from “...numerically using classical Monte Carlo sampling.” to “...numerically using classical Monte Carlo sampling (code available online, see [91]).” where Ref. [91] is the GitHub link.
+
+Here is the Popular Summary accompanying our manuscript:
+
+---
+Quantum spin liquids (QSLs) are exotic phases of matter in which spins fail to order in the conventional sense due to quantum entanglement. This stands in stark contrast to ordered phases like ferromagnets and antiferromagnets, where spins align in regular patterns. QSLs are particularly intriguing because they host fractionalized excitations—quasi-particles with charges that are fractions of what is typically expected. These phases are described by emergent gauge theories, concepts that are central to modern physics. Despite their fascinating properties, observing and studying QSLs has been challenging, primarily because their defining features require non-local measurements.
+
+Our work proposes a novel approach to realize a specific type of QSL, known as a U(1) QSL, in three-dimensional Rydberg atom arrays. These arrays, which make use of highly excited (Rydberg) atoms, are emerging as a versatile platform for engineering exotic many-body quantum states. In our proposal, atoms are trapped in optical tweezers and arranged on a 3D lattice of corner-sharing tetrahedra, called the pyrochlore lattice. By tuning laser parameters, we predict that the system can stabilize the desired spin-liquid phase, characterized by the emergence of “photons,” “monopoles,” and “electric charges.”
+
+Our study not only demonstrates how to stabilize this QSL but also provides access to transitions out of the phase, including confinement-deconfinement and Higgs transitions. Furthermore, we propose experimental protocols to measure correlation functions that can conclusively detect the spin-liquid phase. By extending Rydberg-based quantum simulators into three dimensions, our work paves the way for realizing and probing these elusive phases of matter that have fascinated physicists for decades.
+---
+
+Our response to the two requests:
+
+(i)	Yes, we will supply a visually appealing figure to draw reader’s interest.
+(ii)	We would like our Twitter handles to be tagged in outreach posts. Here are the twitter handles: Jeet Shah - @jeetshah333 and Victor Galitski - @VictorGalitski
+
+Thank you very much.
+
+Sincerely,
+Jeet Shah, Gautam Nambiar, Alexey Gorshkov, and Victor Galitski

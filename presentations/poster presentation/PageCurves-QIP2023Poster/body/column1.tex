@@ -1,0 +1,89 @@
+\section{Introduction}
+In this project, we study how the signatures of symmetry-protected topological (SPT) order generalize to a model protected by an exotic type of symmetry called a \textit{fusion category symmetry.} Let us first understand what fusion category symmetries are and how we can realize them in lattice models using generalized qudits.
+
+Most of the symmetries which we study in quantum mechanics are described by a group $G$ and realized by a set of unitary or anti-unitary operators labeled by elements of the group $\{U_g:g\in G\}$. However, quantum mechanical systems can host much more general symmetries which are described not by groups, but by \textit{\textbf{fusion categories.}} 
+\begin{definition}[Fusion category, informal]
+    A fusion category $\mathcal{A}$ consists of a finite set of \textit{simple objects} $\{a_i\}$ and a product $\otimes:\mathcal{A}\times\mathcal{A}\rightarrow\mathcal{A}$ such that:
+    \begin{enumerate}
+        \item $a_i\times a_j=\sum_k N^{k}_{i,j} a_k$, $N_{i,j}^k\in\mathbb{N},$ \\and for each $a\in \mathcal{A}$:
+        \item (Identity) There exists a trivial object $1\in\mathcal{A}$ such that $1\otimes a=a\otimes 1=a$,
+        \item (Generalized Inverse) There exists an $\bar a\in\mathcal{A}$ such that $a\otimes\bar a=\bar a\otimes a=1+\cdots$.
+    \end{enumerate}
+\end{definition}
+\textit{\textbf{Fusion category symmetries}} are symmetries of a quantum mechanical system realized by a set of operators labeled by the elements of a fusion category: $\{O_a:a\in\mathcal{A}\}$. Because of property 3, these symmetries are said to be \textit{non-invertible}, meaning there are some symmetry transformations which do not have a corresponding inverse in the sense in which we are familiar. To realize fusion category symmetry in a lattice model, we introduce \textit{group-valued qudits}.
+
+\section{Group-Valued Qudits}
+The generalized cluster state is a model defined on \textbf{\textit{group-valued qudits}}, which may be familiar as the degrees of freedom in Kitaev's quantum double model \cite{kitaev_fault-tolerant_2003-2}. To construct these group-valued qudits, we fix a finite group $G$ and work with the set of basis states
+$\{\ket{g}:g\in G\}$
+labeled by elements of the group. The model is constructed on a tensor product of this Hilbert space at each site. 
+
+We can then define \textbf{\textit{generalized Pauli operators}} which act as group multiplication (Pauli $X$):
+\begin{equation*}
+    \lx_g|h\rangle=|gh\rangle,\quad \rx_g|h\rangle=|h\bar{g}\rangle,
+\end{equation*}
+and generalized phase (Pauli $Z$):
+\begin{equation*}
+\zt_{\Gamma}=
+\begin{tikzpicture}[scale=2]
+    \draw[red] (-0.5,0)--(0.5,0);
+    \draw (0,-0.5) -- (0,0.5);
+    \node[mpo] (t) at (0,0) {$\zt_\Gamma$};
+  \end{tikzpicture}  
+=\sum_{g\in G}\textcolor{red}{\Gamma(g)}\otimes \ketbra{g}{g}.
+\end{equation*}
+where $\Gamma$ is an irreducible representation (irrep) of $G$: $\Gamma:G\rightarrow\GL(\mathbb{C})$. Notice that $\zt_\Gamma$ is a matrix product operator (MPO). Indeed, tensor networks are the natural language to describe the generalized cluster state and its symmetries.
+
+\section{Generalized Cluster State}
+The generalized cluster state was introduced in \cite{brell_generalized_2015} and is given by
+\begin{equation*}
+    |\mathcal{C}\rangle=|G|^{-N/2}\sum_{\{g_i\}\in G}|g_1\rangle|g_1\bar{g_2}\rangle|g_2\rangle\cdots|g_{N-1}\bar{g_N}\rangle|g_N\rangle,
+\end{equation*}
+when placed on an open chain of $2N-1$ sites. It can also be expressed as the matrix product state 
+\begin{equation*}
+    \ket{\Cl}=\begin{tikzpicture}[scale=2]
+    \draw (0,0)--(5.5,0);
+    \foreach \x in {0.5,2,3.5,5}{
+		     \draw (\x,0) -- (\x,0.5);
+		    \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,4.25}{
+		     \draw (\x,0) -- (\x,0.5);
+		    \node[even] at (\x,0) {};
+		  }
+		  \node[fill=white] at (2.75,0) {$\dots$};
+		  \node[edge] at (0,0) {};
+		  \node[edge] at (5.5,0) {};
+  \end{tikzpicture} \ ,
+\end{equation*}
+where the MPS tensors are given by
+\begin{equation*}
+    \begin{tikzpicture}[scale=2]
+    % \node[irrep] at (0.2,0) {};
+    \draw (-0.5,0)--(0.5,0);
+    \draw (0,0) -- (0,0.5);
+    \node[odd] (t) at (0,0) {};
+  \end{tikzpicture} 
+\ =\sum_{g\in G}\ketbra{g}{g}\otimes\ket{g},\quad 
+  \begin{tikzpicture}[scale=2]
+    % \node[irrep] at (0.2,0) {};
+    \draw (-0.5,0)--(0.5,0);
+    \draw (0,0) -- (0,0.5);
+    \node[even] (t) at (0,0) {};
+  \end{tikzpicture} 
+\ =\sum_{g\in G} \lx_g\otimes\ket{g}.
+\end{equation*}
+We can identify a family of generalized Pauli operators which stabilize $\ket{\Cl}$ and use these to construct a Hamiltonian which hosts $\ket{\Cl}$ as its ground state:
+\begin{equation*}
+    H_\Cl=-\frac{1}{|G|}\sum_{i\text{ odd}}\Bigg(\sum_{\Gamma\in\rep{G}}\Tr\left[\zt^{\dagger(i)}_\Gamma.\zt^{(i+1)}_\Gamma.\zt^{(i+2)}_\Gamma\right]d_\Gamma+\sum_{g\in G}\rx_g^{(i+1)}\lx_g^{(i+2)}\lx_g^{(i+3)}\Bigg).
+\end{equation*}
+We can identify two families of symmetries of this Hamiltonian:
+\begin{equation*}
+    \left\{\overleftarrow{A}_g = \prod_{i\text{ odd}}\rx_g^{(i)}:g\in G\right\},\quad \left\{ \hat B_\Gamma = \Tr\left[\prod_{i\text{ even}}\zt^{(i)}_\Gamma\right]:\Gamma\in\rep G\right\}.
+\end{equation*}
+These symmetries act on different sublattices and are therefore independent, so that the total symmetry is $G\times\rep G$. The generalized cluster state is also symmetric with respect to both of these symmetries. 
+\vspace{1.5em}
+
+
+\vspace{1em}
+
+

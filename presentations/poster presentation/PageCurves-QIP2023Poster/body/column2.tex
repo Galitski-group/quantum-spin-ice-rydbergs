@@ -1,0 +1,185 @@
+\justifying
+\section{Edge Modes}
+1d SPT phases have a ground state degeneracy when placed on an open chain due to the existence of \textbf{\textit{edge modes}}: the global symmetry operators map between the ground states by effectively only acting at the edges of the system. This is particularly clear in the tensor network language:
+\begin{equation*}
+\overleftarrow A_g\ket{\Cl} = \begin{tikzpicture}[scale=2.5,baseline={(0,.4)}]
+    \draw (0,0)--(5.5,0);
+    \foreach \x in {0.5,2,3.5,5}{
+		     
+		     \draw (\x,0) -- (\x,1);
+		    \node[mpo] (t\x) at (\x,0.5) {$\rx_g$};
+		    \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,4.25}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[even] at (\x,0) {};
+		  }
+		  \node[fill=white] at (2.75,0) {$\dots$};
+		  \node[edge] at (0,0) {};
+		  \node[edge] at (5.5,0) {};
+		  
+    
+  \end{tikzpicture} \ =
+  \begin{tikzpicture}[scale=2.5,baseline={(0,.4)}]
+    \draw (-0.5,0)--(6,0);
+    \foreach \x in {0.5,2,3.5,5}{
+		     
+		     \draw (\x,0) -- (\x,1);
+		    \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,4.25}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[even] at (\x,0) {};
+		  }
+		  \node[fill=white] at (2.75,0) {$\dots$};
+		  \node[edge] at (-0.5,0) {};
+		  \node[edge] at (6,0) {};
+		  \node[mpo] at (0,0) {$\rx_g^\dagger$};
+		  \node[mpo] at (5.5,0) {$\rx_g$};
+		  
+    
+  \end{tikzpicture} \ ,
+\end{equation*}
+
+\begin{equation*}
+\hat B_\Gamma\ket{\Cl}=\begin{tikzpicture}[scale=2.5,baseline={(0,.4)}]
+    \draw (0,0)--(5.5,0);
+    \draw[red] (-0.25,0.5) rectangle (5.75,-0.25);
+    \foreach \x in {0.5,2,3.5,5}{
+		     
+		     \draw (\x,0) -- (\x,0.45);
+		     \draw (\x,0.55) -- (\x,1);
+		    
+		    \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,4.25}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[even] at (\x,0) {};
+		    \node[mpo] (t\x) at (\x,0.5) {$\zt_\Gamma$};
+		  }
+		  \node[fill=white] at (2.75,0) {$\dots$};
+		  \node[fill=white] at (2.75,0.5) {$\dots$};
+		  \node[edge] at (0,0) {};
+		  \node[edge] at (5.5,0) {};
+		  
+    
+  \end{tikzpicture} \ =
+  \begin{tikzpicture}[scale=2.5,baseline={(0,.4)}]
+    \draw (-0.5,0)--(6,0);
+    \draw[red] (-0.35,-0.5) rectangle (5.85,-0.2);
+    \foreach \x in {0.5,2,3.5,5}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,4.25}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[even] at (\x,0) {};
+		  }
+		  \node[fill=white] at (2.75,0) {$\dots$};
+		  \node[fill=white] at (2.75,-0.2) {$\dots$};
+		  \node[edge] at (-0.5,0) {};
+		  \node[edge] at (6,0) {};
+		  \node[mpo] at (0,-0.1) {$\zt_\Gamma$};
+		  \node[mpo] at (5.5,-0.1) {$\zt_\Gamma^\dagger$};
+		  
+    
+  \end{tikzpicture} \ .
+\end{equation*}
+Equivalently, the degenerate ground states have the same MPS tensors and only differ in their boundary conditions.
+\section{String Order Parameter}
+Though SPTs are symmetric states and therefore indistinguishable from trivial symmetric states by any \textit{local} order parameter, they admit a \textit{non-local} or \textbf{\textit{string order parameter}} which can effectively detect SPT order. For the generalized cluster state, the string order parameter consists of a $\zt^\dagger_\Gamma$ and $\zt_\Gamma$ on two odd sites separated by some distance $2k$, with a $\zt_\Gamma$ on every even site in-between:
+\begin{equation*}           \hat{\mathcal{S}}^{(i,i+2k)}=\sum_{\Gamma\neq\mathbf{1}}\frac{d_\Gamma}{|G|-1}\Tr\left[\zt_\Gamma^{\dagger(i)}.\left(\prod_{j=0}^{k-1}\zt_\Gamma^{(i+1+2j)}\right).\zt_\Gamma^{(i+2k)}\right].
+\end{equation*}
+We find that it has nonzero expectation value in $\ket{\Cl}$:
+\begin{equation*}
+\hat{\mathcal{S}}^{(i,i+2k)}\ket{\Cl}=\sum_{\Gamma\neq\mathbf{1}}\frac{d_\Gamma}{|G|-1}\begin{tikzpicture}[scale=2.5]
+    \draw (0,0)--(5.5,0);
+    \node[fill=white] at (0,0) {$\dots$};
+    \node[fill=white] at (5.5,0) {$\dots$};
+    \draw[red] (-0.25,0.5) rectangle (5.75,-0.25);
+    \foreach \x in {5}{
+	    \draw (\x,0) -- (\x,1);
+		\node[odd] at (\x,0) {};
+		\node[mpo] (t\x) at (\x,0.5) {$\zt_\Gamma$};
+		  }
+    \foreach \x in {2}{
+		 \draw (\x,0) -- (\x,0.45);
+		 \draw (\x,0.55) -- (\x,1);
+		 \node[odd] at (\x,0) {};
+		  }
+		  \foreach \x in {1.25,2.75,4.25}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[even] at (\x,0) {};
+		    \node[mpo] (t\x) at (\x,0.5) {$\zt_\Gamma$};
+		  }
+	% \foreach \x in {5.75}{
+ %        \draw (\x,0) -- (\x,0.45);
+	% 	\draw (\x,0.55) -- (\x,1);
+	% 	\node[even] at (\x,0) {};
+	% 	  }
+		  \foreach \x in {.5}{
+		     \draw (\x,0) -- (\x,1);
+		    \node[odd] at (\x,0) {};
+		    \node[mpo] (t\x) at (\x,0.5) {$\zt^\dagger_\Gamma$};}
+		  %\node[fill=white] at (3.5,0) {$\dots$};
+		  %\node[fill=white] at (3.5,0.5) {$\dots$};
+		  % \node[edge] at (0,0) {};
+		  % \node[edge] at (5.5,0) {};
+        
+        \node[fill=white] at (3.5,0) {$\dots$};
+        \node[fill=white] at (3.5,-.25) {$\dots$};
+        \node[fill=white] at (3.5,.5) {$\dots$};
+  \end{tikzpicture}
+   \ = \ket{\Cl},
+\end{equation*}
+but has vanishing expectation value in the trivial $G\times\rep G$-symmetric state.
+
+
+\section{Trivialization by Stacking}
+Stacking is an operation which fuses spin chains into a ladder-like structure. We find that a stack of $n$ copies of the generalized cluster state lies in the same phase as the state 
+\begin{equation*}
+    \ket{\Cl^n}=|G|^{-N/2}\sum_{\{g_i\}}\ket{g_1}\ket{(g_1\bar{g_2})^n}\ket{g_2}\cdots\ket{(g_{N-1}\bar{g_N})^n}\ket{g_N}.
+\end{equation*}
+Let $n_*$ be the exponent of the group, defined to be the least common multiple of the order of each element in the group. This implies that $g^{n_*}=e$ for all $g\in G$, and indeed $n_*$ is the smallest integer for which this is true. When $n=n_*$,  $\ket{\Cl^{n_*}}$ becomes a separable state. This shows that stacking $n_*$ copies of $\ket{\Cl}$ trivializes the SPT, so we say that the order of $\ket{\Cl}$ is $n_*$.
+% \begin{equation*}
+%     \ket{\Cl^n}=\begin{tikzpicture}[scale=2]
+%     \draw (0,0)--(5.5,0);
+%     \foreach \x in {0.5,2,3.5,5}{
+% 		     \draw (\x,0) -- (\x,0.5);
+% 		    \node[oddn] at (\x,0) {};
+% 		  }
+% 		  \foreach \x in {1.25,4.25}{
+% 		     \draw (\x,0) -- (\x,0.5);
+% 		    \node[even] at (\x,0) {};
+% 		  }
+% 		  \node[fill=white] at (2.75,0) {$\dots$};
+% 		  \node[edge] at (0,0) {};
+% 		  \node[edge] at (5.5,0) {};
+%   \end{tikzpicture} \ ,
+% \end{equation*}
+% where
+% \begin{equation*}
+%   \begin{tikzpicture}[scale=2]
+%     % \node[irrep] at (0.2,0) {};
+%     \draw (-0.5,0)--(0.5,0);
+%     \draw (0,0) -- (0,0.5);
+%     \node[odd] (t) at (0,0) {};
+%     \node[oddn] (t) at (0,0) {};
+%   \end{tikzpicture} 
+% \ =\sum_{g}\ketbra{g^n}{g^n}\otimes\ket{g}.
+% \end{equation*}
+
+
+\section{Topological Response}
+SPT states are known to pump quantized symmetry charge in response to the insertion of symmetry flux. This is known as \textbf{\textit{topological response}}. We separately study the $\rep G$ charge of the generalized cluster state with $g$-flux inserted, denoted $\ket{\Cl_g}$, and the $G$ charge of the generalized cluster state with $\Gamma$-flux inserted, denoted $\ket{\Cl_\Gamma}$:
+
+\begin{equation*}
+    \hat B_\Gamma\ket{\Cl_g}=\Tr\left[\prod_{i\text{ even}}\zt_\Gamma^{(i)}\right]|\mathcal{C}_g\rangle=\Tr[\Gamma(g)]|\mathcal{C}_g\rangle.
+\end{equation*}
+
+\begin{equation*}
+    \overleftarrow{A}_g\ket{\Cl_\Gamma}=|G|^{-(N-1)/2}\sum_{{g_i}\in G}\Tr[\Gamma(g_1g)]|g_1\rangle|g_1\bar{g_2}\rangle|g_2\rangle\cdots|g_{N-1}\bar{g_1}\rangle.
+\end{equation*}
+In the first case, we say that $\ket{\Cl_g}$ has a charge of $\Tr[\Gamma(g)]$ under $\hat B_\Gamma$. In the second case, $\ket{\Cl_\Gamma}$ is not an eigenstate of the $G$ symmetry. Instead, we have a $d_{\Gamma}^2$-dimensional subspace supporting states
+$\left\{\overleftarrow A_g\ket{\Cl_\Gamma}:g\in G\right\}$
+which transform as an irrep of $G$, indicating that $\ket{\Cl_\Gamma}$ is charged under $\overleftarrow A_g$.

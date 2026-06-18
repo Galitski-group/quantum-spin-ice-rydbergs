@@ -1,0 +1,111 @@
+\begin{figure}
+    \centering
+    %
+    \begin{minipage}{.49\textwidth}
+    \begin{tikzpicture}
+    \begin{axis}[
+            width=.95\textwidth,
+            height=.65\textwidth,
+            xlabel={\large$\frac{k}{n}$},
+            ylabel={$S_2/n$},
+            title={\textbf{(a)}},
+            samples=3,
+            domain=0:1,
+            xtick={1},
+            ytick={0},
+            ymin=0, ymax=.44,
+            xmin=0, xmax=1.015,
+            restrict y to domain =0:1,
+            axis y line=middle,
+            axis x line=middle,
+            x axis line style=-,
+            y axis line style=-,
+            x label style={xshift=1.2em,yshift=-.5em},
+            y label style={xshift=-1.5em,yshift=1.5em},
+            % title style={xshift=-1.2em,yshift=-5em}
+        ]
+    
+        \addplot[purple, dashed, line width=.2cm] plot (\x, {ln(cosh(3/4))+(1/2)*ln(1+pow(tanh(3/4),2))});
+        \node at (axis cs:1.02,.4275) [anchor=north east] {\color{purple}\small$\frac{1}{2}\log \cosh 2s$};
+        
+        \addplot[violet, dashed, line width=.2cm] plot (\x, {ln(cosh(3/4))});
+        \node at (axis cs:1.02,.258) [anchor=south east] {\color{violet}\small$\log \cosh s$};
+        
+        \addplot[blue, line width=.2cm] plot (\x, {min(\x,1-\x)*ln(cosh(3/2))});
+        \node (max) at (axis cs: 0,.35) [anchor=west] {\color{blue}\small$\displaystyle\max_{U \in \U(n)} \frac{S_2(U)}{n}$};
+        % \node (maxcurve) at (axis cs: .41,.35) {};
+        \node (maxcurve) at (axis cs: .43,.37) {};
+        \draw[blue, ->,>=stealth, line width=.2cm](max)--(maxcurve);
+        
+        
+        \addplot[red, line width=.2cm] table [x=r, y=Squal]{graphics/qualitative.dat};
+        \node (page) at (axis cs:.5,.17) [anchor=north] {\color{red}$\displaystyle\lim_{n\to\infty} \displaystyle\Expval_{U\in\U(n)}\frac{S_2(U)}{n}$};
+        \node (curve) at (axis cs:.6,.25){};
+        \draw[red, ->,>=stealth, line width=.2cm](page)--(curve);
+    
+    \end{axis}
+    \end{tikzpicture}
+    \end{minipage}
+    %
+    %
+    %
+    %
+    % \hfill
+    %
+    %
+    %
+    %
+    \begin{minipage}{.49\textwidth}
+    \begin{tikzpicture}
+    \begin{axis}[
+            width=.95\textwidth,
+            height=.65\textwidth,
+            xlabel={$\frac{k}{n}$},
+            ylabel={$S_2/50$},
+            title={\textbf{(b)}},
+            samples=3,
+            domain=0:1,
+            xtick={0,.5,1},
+            ytick={0,.2,.4},
+            ymin=0, ymax=.44,
+            xmin=0, xmax=1.015,
+            restrict y to domain =0:1,
+            axis y line=middle,
+            axis x line=middle,
+            x axis line style=-,
+            y axis line style=-,
+            y axis line style=-,
+            x label style={xshift=1.2em,yshift=-.5em},
+            y label style={xshift=-1.5em,yshift=1.5em},
+            % title style={xshift=-1.2em,yshift=-5em}
+        ]
+    
+        \addplot[purple, dashed, line width=.2cm] plot (\x, {ln(cosh(3/4))+(1/2)*ln(1+pow(tanh(3/4),2))});
+        \node at (axis cs:1.02,.4275) [anchor=north east] {\color{purple}\small $\frac{1}{2}\log \cosh(3/2)$};
+        
+        \addplot[violet, dashed, line width=.2cm] plot (\x, {ln(cosh(3/4))});
+        \node at (axis cs:1.02,.258) [anchor=south east] {\color{violet}\small $\log \cosh (3/4)$};
+        
+        
+        \addplot[blue, only marks, mark size=.75pt, line width=.2cm] table [x=r, y=Smax]{graphics/quantitative.dat};
+        \node (max) at (axis cs: 0,.35) [anchor=west] {\color{blue}\small $\displaystyle\max_{U \in \U(50)} \frac{S_2(U)}{50}$};
+        % \node (maxcurve) at (axis cs: .41,.35) {};
+        \node (maxcurve) at (axis cs: .43,.37) {};
+        \draw[blue, ->,>=stealth, line width=.2cm](max)--(maxcurve);
+        
+        
+        \addplot[red, only marks, mark size=.75pt, mark=square*, line width=.2cm] table [x=r, y=Squan]{graphics/quantitative.dat};
+        \node (page) at (axis cs:.5,.17) [anchor=north] {\color{red} $\substack{\displaystyle\Expval_{U\in\U(50)}\frac{S_2(U)}{50}\\\text{Numerical approx.}}$};
+        \node (curve) at (axis cs:.6,.25){};
+        \draw[red, ->,>=stealth, line width=.2cm](page)--(curve);
+    
+    \end{axis}
+    \end{tikzpicture}
+    \end{minipage}
+    
+    
+    
+    \caption{(a) Exact results for the R\'enyi-2 Page curve. (b) Numerical simulations of the R\'enyi-2 Page curve for $n=50$ modes and squeezing $s = 3/4$. We plot the values for each $k\in\set{0,1,\dots,50}$.}
+%     \label{fig:page-curve}
+\end{figure}
+%

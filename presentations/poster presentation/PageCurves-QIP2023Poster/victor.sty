@@ -1,0 +1,410 @@
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{romannum}
+
+% \usepackage[unicode=true,
+%  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+%  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
+%  {hyperref}
+% % \hypersetup{
+% %  linkcolor=magenta, urlcolor=blue, citecolor=blue, pdfstartview={FitH}, hyperfootnotes=true, unicode=true}
+ 
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\@ifundefined{textcolor}{}
+{%
+ \definecolor{BLACK}{gray}{0}
+ \definecolor{WHITE}{gray}{1}
+ \definecolor{RED}{rgb}{1,0,0}
+ \definecolor{GREEN}{rgb}{0,1,0}
+ \definecolor{BLUE}{rgb}{0,0,1}
+ \definecolor{CYAN}{cmyk}{1,0,0,0}
+ \definecolor{MAGENTA}{cmyk}{0,1,0,0}
+ \definecolor{YELLOW}{cmyk}{0,0,1,0}
+}
+
+
+\newcommand{\doublewidetilde}[1]{{%
+  \mathpalette\double@widetilde{#1}%
+}}
+\newcommand{\double@widetilde}[2]{%
+  \sbox\z@{$\m@th#1\widetilde{#2}$}%
+  \ht\z@=.9\ht\z@
+  \widetilde{\box\z@}%
+}
+
+
+%%%% Notation for Paraj
+\definecolor{darkgreen}{rgb}{0.0, 0.6, 0.13}
+\newcommand{\PTsout}[2]{\textcolor{darkgreen}{[PT: \sout{#1} #2]}}
+\newcommand{\PT}[1]{\textcolor{darkgreen}{[PT: #1]}}
+\newcommand{\PTcomment}[1]{\textcolor{darkgreen}{[PT(comment): #1]}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+
+\usepackage{amsfonts}\usepackage{tabularx}\usepackage{dcolumn}\usepackage{bm}\usepackage{graphicx}\usepackage{epstopdf}
+
+\setcounter{MaxMatrixCols}{10}
+\hypersetup{urlcolor=blue}
+
+\usepackage{tensor}
+\usepackage{braket}
+
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\Hc}{\mathrm{H.c.}}
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+
+% Victors Commands
+%Quantum operators
+% \global\long\def\bra{\langle}%
+% \global\long\def\ket{\rangle}%
+\global\long\def\half{{\textstyle \frac{1}{2}}}%
+\global\long\def\pr{\prime}%
+\global\long\def\kk#1{\left|#1\right\rangle }%
+\global\long\def\bbra#1{\left\langle #1\right|}%
+\global\long\def\id{1}%
+\global\long\def\Re{\text{Re}}%
+\global\long\def\Im{\text{Im}}%
+\global\long\def\sgn{\text{sgn}}%
+\global\long\def\der{\text{d}}%
+\global\long\def\hc{\text{h.c.}}%
+\global\long\def\Tr{\text{Tr}}%
+\global\long\def\tr{\textsc{Tr}}%
+\global\long\def\ot{\otimes}%
+
+%Greek letters
+% \global\long\def\o{\omega}%
+\global\long\def\e{\epsilon}%
+\global\long\def\dg{\dagger}%
+\global\long\def\O{\Omega}%
+\global\long\def\s{\sigma}%
+\global\long\def\d{\delta}%
+\global\long\def\a{\alpha}%
+\global\long\def\b{\beta}%
+\global\long\def\g{\gamma}%
+\global\long\def\l{\lambda}%
+\global\long\def\p{\partial}%
+\global\long\def\m{\mu}%
+\global\long\def\n{\nu}%
+
+%groups and spaces
+\global\long\def\B{\textnormal{\textbf{H}}}%
+\global\long\def\R{\textnormal{\textbf{R}}}%
+\global\long\def\G{\textnormal{\textbf{G}}}%
+\global\long\def\Z{\textnormal{\textbf{Z}}}%
+\global\long\def\U{\textnormal{\textbf{U}}}%
+\global\long\def\SU{\textnormal{\textbf{SU}}}%
+\global\long\def\SO{\textnormal{\textbf{SO}}}%
+\global\long\def\GA{\boldsymbol{\Gamma}}%
+\global\long\def\D{\textnormal{\textbf{D}}}%
+\global\long\def\C{\textnormal{\textbf{C}}}%
+\global\long\def\OO{\textnormal{\textbf{O}}}%
+\global\long\def\K{\textnormal{\textbf{K}}}%
+\global\long\def\S{\textnormal{\textbf{S}}}%
+\global\long\def\T{\textnormal{\textbf{T}}}%
+\global\long\def\irr#1{\text{irr}(#1)}%
+\global\long\def\cl#1{\text{cls}(#1)}%
+\global\long\def\nor#1{\textnormal{\textbf{N}}(#1)}%
+\global\long\def\cen#1{\textnormal{\textbf{C}}(#1)}%
+
+%Parameters
+\global\long\def\cc{\text{C}}%
+\global\long\def\ff{\text{f}}%
+\global\long\def\mm{\text{M}}%
+\global\long\def\ccl{\text{c}}%
+
+%Lie group coordinates
+\global\long\def\ia{\mathtt{a}}%
+\global\long\def\ib{\mathtt{b}}%
+\global\long\def\ic{\mathtt{c}}%
+\global\long\def\ix{\mathtt{x}}%
+\global\long\def\iy{\mathtt{y}}%
+\global\long\def\iz{\mathtt{z}}%
+
+%Qunit operators
+\global\long\def\pau{\hat{\sigma}}%
+\global\long\def\ss{\hat{S}}%
+\global\long\def\zz{\hat{Z}}%
+\global\long\def\zt{\mathcal{Z}}%
+\global\long\def\zth{\hat{\mathcal{Z}}}%
+\global\long\def\uu{\hat{U}}%
+\global\long\def\r{\hat{R}}%
+\global\long\def\rh{\hat{\varPi}}%
+\global\long\def\xx{\hat{X}}%
+\global\long\def\k{\hat{\phi}}%
+\global\long\def\th{\hat{\theta}}%
+\renewcommand{\zt}{%   
+\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$Z$\cr}}% 
+}
+\renewcommand{\zth}{%   
+\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$\hat{Z}$\cr}}% 
+}
+
+%Irreps
+\global\long\def\ione{\boldsymbol{1}}%
+\global\long\def\ionep{\boldsymbol{1}^{\prime}}%
+\global\long\def\ionepp{\boldsymbol{1}^{\prime\prime}}%
+\global\long\def\itwo{\boldsymbol{2}}%
+
+%Group operators
+\global\long\def\rp{\overleftarrow{\varPi}}%
+\global\long\def\rx{\overleftarrow{X}}%
+\global\long\def\rs{\overleftarrow{L}}%
+\global\long\def\rv{\overleftarrow{\boldsymbol{L}}}%
+\global\long\def\rj{\overleftarrow{\p\phi}}%
+\global\long\def\rc{\overleftarrow{J}_{KM}}%
+\global\long\def\ro{\overleftarrow{J}_{\textsf{ot}}}%
+\global\long\def\lrs{\overleftrightarrow{L}}%
+
+\global\long\def\lx{\overrightarrow{X}}%
+\global\long\def\ls{\overrightarrow{L}}%
+\global\long\def\lv{\overrightarrow{\boldsymbol{L}}}%
+\global\long\def\lj{\overrightarrow{\p\phi}}%
+\global\long\def\lc{\overrightarrow{J}_{KM}}%
+\global\long\def\lo{\overrightarrow{J}_{\textsf{ot}}}%
+
+\global\long\def\iv{\boldsymbol{L}}%
+\global\long\def\is{\hat{L}}%
+\global\long\def\lh{\hat{L}}%
+\global\long\def\jh{\hat{J}}%
+\global\long\def\jp{\hat{J}_{\textnormal{KM}}^{+}}%
+\global\long\def\jm{\hat{J}_{\textnormal{KM}}^{-}}%
+\global\long\def\jk{\hat{J}_{\textnormal{KM}}}%
+
+\global\long\def\sv{\hat{\boldsymbol{L}}}%
+
+\global\long\def\cnot{\textsc{cnot}}%
+\global\long\def\vh{\overrightarrow{\textsc{crot}}}%
+
+%\global\long\def\col{\textsf{(All)}}%
+%\global\long\def\col{\text{\faGlobe}}%
+\global\long\def\col{\textsf{(global)}}%
+\global\long\def\lprns{\overrightarrow{P}}%
+
+%Dihedral details
+\global\long\def\prns{\hat{P}}%
+\global\long\def\prpm{\hat{P}_{\pm}}%
+\global\long\def\prp{\hat{P}_{+}}%
+\global\long\def\prm{\hat{P}_{-}}%
+
+%Ribbons
+\global\long\def\rib{\overleftarrow{F}}%\mathscr{F}
+\global\long\def\jw{\overleftarrow{\varLambda}}%
+\global\long\def\jww{\overrightarrow{\varGamma}}%
+\global\long\def\para{\overrightarrow{\eta}}%
+\global\long\def\maj{\overrightarrow{\gamma}}%
+
+%Etc
+\global\long\def\ham{\hat{H}}%
+\global\long\def\pot{\hat{V}}%
+\global\long\def\vs{\hat{V}^{\text{smooth}}}%
+\global\long\def\vsnh{V^{\text{smooth}}}%
+\global\long\def\vd{\hat{V}^{\text{sharp}}}%
+\global\long\def\pro{\varPi}%
+\global\long\def\ga{\hat{G}}%
+\global\long\def\f{\hat{F}}%
+\global\long\def\lv{\kappa}%
+\global\long\def\ma{\hat{\varPhi}}%
+\global\long\def\bul{\text{bulk}}%
+\global\long\def\edg{\text{edge}}%
+
+%Fermions
+\global\long\def\fh{\hat{\psi}}%
+\global\long\def\rf{\overleftarrow{\psi}}%
+\global\long\def\lf{\overrightarrow{\psi}}%
+
+%spatial coordinates
+\global\long\def\x{\mathsf{x}}%
+\global\long\def\y{\mathsf{y}}%
+\global\long\def\z{\mathsf{z}}%
+\global\long\def\t{\mathsf{t}}%
+\global\long\def\j{\mathsf{j}}%
+\global\long\def\i{\mathsf{i}}%
+\global\long\def\zer{\mathsf{0}}%
+\global\long\def\one{\mathsf{1}}%
+\global\long\def\two{\mathsf{2}}%
+\global\long\def\thre{\mathsf{3}}%
+\global\long\def\L{\mathsf{L}}%
+\global\long\def\nm{\mathsf{m}}%
+\global\long\def\nn{\mathsf{n}}%
+
+
+%Chris's Commands
+\global\long\def\ztwo{\mathbb{Z}_2
+}%
+
+%Square lattice
+\DeclareRobustCommand{\tfl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,0.5)--(0.5,0.5)--(0.5,-0.5);
+\draw(0,0.5)        node{\textbullet};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\bfl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,0.5)--(0.5,0.5)--(0.5,-0.5);
+\draw(0,0.5)        node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\textbullet};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\tce}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,0.5)--(-0.5,-0.5)--(0.5,-0.5);
+\draw(0,0.5)        node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\textbullet};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\bce}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,0.5)--(-0.5,-0.5)--(0.5,-0.5);
+\draw(0,0.5)        node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\textbullet};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\tpl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,-0.5)--(-0.5,0.5)--(0.5,0.5)--(0.5,-0.5)--(-0.5,-0.5);
+\draw(0,0.5)        node{\textbullet};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\rpl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,-0.5)--(-0.5,0.5)--(0.5,0.5)--(0.5,-0.5)--(-0.5,-0.5);
+\draw(0,0.5)        node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\textbullet};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\lpl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,-0.5)--(-0.5,0.5)--(0.5,0.5)--(0.5,-0.5)--(-0.5,-0.5);
+\draw(0,0.5)       node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)      node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\textbullet};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\bpl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,-0.5)--(-0.5,0.5)--(0.5,0.5)--(0.5,-0.5)--(-0.5,-0.5);
+\draw(0,0.5)       node{\phantom{\textbullet}};
+\draw(0.5,0)        node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\textbullet};
+\draw(-0.5,0)      node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\cpl}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-0.5,-0.5)--(-0.5,0.5)--(0.5,0.5)--(0.5,-0.5)--(-0.5,-0.5);
+\draw(0,0.5)         node{\phantom{\textbullet}};
+\draw(0.5,0)         node{\phantom{\textbullet}};
+\draw(0,-0.5)        node{\phantom{\textbullet}};
+\draw(-0.5,0)        node{\phantom{\textbullet}};
+\draw(0,0)        node{\textbullet};
+\end{tikzpicture}}}
+
+\DeclareRobustCommand{\lvr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-1,0)--(1,0);
+\draw[black] (0,-1)--(0,1);
+\draw(0,0.45)     node{\phantom{\textbullet}};
+\draw(0.45,0)      node{\phantom{\textbullet}};
+\draw(0,-0.45)     node{\phantom{\textbullet}};
+\draw(-0.45,0)     node{\textbullet};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\bvr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-1,0)--(1,0);
+\draw[black] (0,-1)--(0,1);
+\draw(0,0.45)     node{\phantom{\textbullet}};
+\draw(0.45,0)      node{\phantom{\textbullet}};
+\draw(0,-0.45)     node{\textbullet};
+\draw(-0.45,0)     node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\tvr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-1,0)--(1,0);
+\draw[black] (0,-1)--(0,1);
+\draw(0,0.45)     node{\textbullet};
+\draw(0.45,0)      node{\phantom{\textbullet}};
+\draw(0,-0.45)     node{\phantom{\textbullet}};
+\draw(-0.45,0)     node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\rvr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (-1,0)--(1,0);
+\draw[black] (0,-1)--(0,1);
+\draw(0,0.45)     node{\phantom{\textbullet}};
+\draw(0.45,0)      node{\textbullet};
+\draw(0,-0.45)     node{\phantom{\textbullet}};
+\draw(-0.45,0)     node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+
+%Triangles for bicycle wheel
+\DeclareRobustCommand{\etr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5)--(-1.232,0)--(0.5,-0.5)--(0.5,0.5);
+\draw(0.5,-0.07)     node{\phantom{\textbullet}};
+\draw(-0.366,0.18)   node{\phantom{\textbullet}};
+\draw(-0.366,-0.32)  node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\rtr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5)--(-1.232,0)--(0.5,-0.5)--(0.5,0.5);
+\draw(0.5,-0.07)         node{\textbullet};
+\draw(-0.366,0.18)   node{\phantom{\textbullet}};
+\draw(-0.366,-0.32)  node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\ttr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5)--(-1.232,0)--(0.5,-0.5)--(0.5,0.5);
+\draw(0.5,-0.07)         node{\phantom{\textbullet}};
+\draw(-0.366,0.18)   node{\textbullet};
+\draw(-0.366,-0.32)  node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\btr}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5)--(-1.232,0)--(0.5,-0.5)--(0.5,0.5);
+\draw(0.5,-0.07)     node{\phantom{\textbullet}};
+\draw(-0.366,0.18)   node{\phantom{\textbullet}};
+\draw(-0.366,-0.32)  node{\textbullet};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\tro}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5);
+\draw[black] (-1.232,0)--(0.5,0);
+\draw(0.5,0.43)      node{\textbullet};
+\draw(0.5,-0.57)     node{\phantom{\textbullet}};
+\draw(-0.366,0)      node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\bro}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5);
+\draw[black] (-1.232,0)--(0.5,0);
+\draw(0.5,0.43)      node{\phantom{\textbullet}};
+\draw(0.5,-0.57)     node{\textbullet};
+\draw(-0.366,0)      node{\phantom{\textbullet}};
+\end{tikzpicture}}}
+\DeclareRobustCommand{\lro}{\resizebox{10pt}{!}{\!\!\!\!
+\begin{tikzpicture}[line join=round,x=5pt,y=5pt]   
+\draw[black] (0.5,-0.5)--(0.5,0.5);
+\draw[black] (-1.232,0)--(0.5,0);
+\draw(0.5,0.43)      node{\phantom{\textbullet}};
+\draw(0.5,-0.57)     node{\phantom{\textbullet}};
+\draw(-0.366,0)      node{\textbullet};
+\end{tikzpicture}}}
+
+\usepackage[capitalise,compress]{cleveref}
